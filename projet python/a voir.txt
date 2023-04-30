@@ -1,0 +1,6 @@
+- hadak dossier dyal back end fih ga3 les fonctions 
+- hadak dossier dyal front end fih les interfaces 
+	- hadik dyal sign in ma7owalthach l customertkinter hadik ghir tkinter mhm khaliha rah 3ad kan7awel nefhem les choses comment ca marche
+	3ad fhmt bli ila drt tk() rah kanakhdem gha b tkinter 3adi wila drt CTK() rah hadak customer o fih declaration dyal button o dakchi lakhor 
+	mghayer chwiya ela tkinter
+- mhm hta tgoli liya les couleurs li ndir rah an7awel de ne pas inserer plrs images bach ila bina nbadlo les couleurs tjina sahla 

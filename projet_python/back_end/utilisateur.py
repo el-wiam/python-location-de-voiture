@@ -1,19 +1,21 @@
 import connexion
 import model
+import hashlib
 class users:
     username=''
     email=''
     pwd=''
+    hashed_password = hashlib.sha256(pwd.encode()).hexdigest()
 
     # def __init__(self):      
     #     self.username=""
     #     self.email=""
     #     self.pwd=""
 
-    def __init__(self,username,email,pwd):  
+    def __init__(self,username,email, hashed_password ):  
         self.username=username
         self.email=email
-        self.pwd=pwd
+        self.pwd= hashed_password 
     
     def creerUser(self):
         return model.utilisateurModel.creer(self.username,self.email,self.pwd)

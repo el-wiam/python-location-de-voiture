@@ -4,7 +4,7 @@ conn=ms.connect(
     host="localhost",
     username="root",
     password="",
-    database="projet_python"
+    database="locationvoiture"
 )
 
 db=conn.cursor()

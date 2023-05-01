@@ -1,6 +1,19 @@
-- hadak dossier dyal back end fih ga3 les fonctions 
-- hadak dossier dyal front end fih les interfaces 
-	- hadik dyal sign in ma7owalthach l customertkinter hadik ghir tkinter mhm khaliha rah 3ad kan7awel nefhem les choses comment ca marche
-	3ad fhmt bli ila drt tk() rah kanakhdem gha b tkinter 3adi wila drt CTK() rah hadak customer o fih declaration dyal button o dakchi lakhor 
-	mghayer chwiya ela tkinter
-- mhm hta tgoli liya les couleurs li ndir rah an7awel de ne pas inserer plrs images bach ila bina nbadlo les couleurs tjina sahla 
+- anabda db b toplevel.py : 
+	from tkinter import * : kata3ni kat importer ay haja mn tkinter i3ni les button matalan les label .....
+	import customtkinter  : importit customtkinter 
+	import top 			  : hadak top howa fih sign up o forget password
+
+drt class App() 
+	 constructeur dyalha __init__(dik self hiya customtkinter )
+	 mhm height o width hado dyal la fentre 
+	 self.title : kata3ni customtkinter.title dak title li kayatla3 f la fentre lfo9
+	 self.config(bg="black") i3ni bach background dyal la fentre ka7la 
+
+	 ila bity that photoImage f background f fentre kadiri path dyalha f dik file 
+	 ila bity declarer label : customtkinter.CTKLabel had label fiha des attribut : 
+	 	katabday dima b fin biti thati hadik label hna f had le cas bina n7atoh fog la fenetre kandiro self 
+		sinon biti dirih fo9 wahd image exemple: 
+		self.Login_backgroundImage = PhotoImage(file="assets\\loginp.png")
+		hadik self.Login_backgroundImage bity diri label fo9 menha donc west label fblast madiri self kadiri self.Login_backgroundImage 
+		mhm text : katinserer text li biti iban 
+		fg_color : i3ni lon dyal background dyal dik image 

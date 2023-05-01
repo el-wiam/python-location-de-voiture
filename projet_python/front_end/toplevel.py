@@ -14,7 +14,7 @@ class App(customtkinter.CTk):
         self.title("login")
         self.config(bg='black')
 
-        self.Login_backgroundImage = PhotoImage(file="assets\\loginp.png")
+        self.Login_backgroundImage = PhotoImage(file="assets\loginp.png")
         self.bg_imageLogin = customtkinter.CTkLabel(
             self,
             image=self.Login_backgroundImage,

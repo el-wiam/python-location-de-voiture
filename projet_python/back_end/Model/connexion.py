@@ -2,7 +2,7 @@ import mysql.connector as ms
 
 conn=ms.connect(
     host="localhost",
-    username="root",
+    user="root",
     password="",
     database="locationvoiture"
 )

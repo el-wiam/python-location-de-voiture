@@ -16,12 +16,12 @@ class users:
     def modifierUser(self,id):
         return model.utilisateurModel.modifier(id,self.username,self.email,self.pwd)
     
-    def supprimerUser(id):
+    def supprimerUser(self,id):
         return model.utilisateurModel.supprimer(id)
     
-    def afficherUser():
+    def afficherUser(self):
         return model.utilisateurModel.affichage()
 
-    def authentifierUser(id,username,pwd):
+    def authentifierUser(self,id,username,pwd):
         return model.utilisateurModel.authentifier(id,username,pwd)
     

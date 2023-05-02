@@ -1,5 +1,4 @@
-import connexion
-import modelUsers as model
+import Model.modelUsers as model
 class users:
     username=''
     email=''

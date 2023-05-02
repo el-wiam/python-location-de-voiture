@@ -4,6 +4,7 @@ class utilisateurModel:
     username=''
     email=''
     pwd=''
+    
     def __init__(self) -> None:
         pass
 

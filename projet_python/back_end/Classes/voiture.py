@@ -1,5 +1,4 @@
-import connexion
-import modelVoiture as voiture
+import Model.modelVoiture as voiture
 class voiture:
     marque=''
     modele=''

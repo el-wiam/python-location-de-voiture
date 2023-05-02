@@ -4,14 +4,10 @@ class utilisateurModel:
     username=''
     email=''
     pwd=''
-<<<<<<< HEAD:projet_python/back_end/Model/modelUsers.py
-    
-=======
     nom_complet=''
     cin=''
     num_tel=''
     num_permis=''
->>>>>>> 91ef90bea0bb27bcb82ad4bbc3f524ad7c92ec89:projet_python/back_end/modelUsers.py
     def __init__(self) -> None:
         pass
 

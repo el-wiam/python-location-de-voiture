@@ -1,5 +1,4 @@
-import connexion
-import model
+import Model.modelUsers as model
 import hashlib
 class users:
     username=''

@@ -13,15 +13,33 @@ class App(customtkinter.CTk):
         self.geometry('{}x{}+{}+{}'.format(width, height, x, y))
         self.title("login")
         self.config(bg='black')
-
-        self.Login_backgroundImage = PhotoImage(file="assets\loginp.png")
-        self.bg_imageLogin = customtkinter.CTkLabel(
+        self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
+        self.bg_imageLogo = customtkinter.CTkLabel(
             self,
-            image=self.Login_backgroundImage,
+            image=self.Logo_backgroundImage,
+            fg_color="black",
+            text="",
+        )
+        self.bg_imageLogo.place(x=0, y=0)
+        # self.bg_imageLogo.pack(side="left", padx=0, pady=0)
+
+        self.Logiin_backgroundImage = PhotoImage(file="assets\\logiin (1).png")
+        self.bg_imageLogiin = customtkinter.CTkLabel(
+            self,
+            image=self.Logiin_backgroundImage,
             fg_color="black",
             text=""
         )
-        self.bg_imageLogin.pack(side="top", padx=100, pady=100)
+        self.bg_imageLogiin.place(x=0, y=120)
+
+        # self.Login_backgroundImage = PhotoImage(file="assets\loginp.png")
+        # self.bg_imageLogin = customtkinter.CTkLabel(
+        #     self,
+        #     image=self.Login_backgroundImage,
+        #     fg_color="black",
+        #     text=""
+        # )
+        # self.bg_imageLogin.place(x=650,y=140)
         
         # ============================= GO TO SIGN UP =============================
         # ================ Email Name Section ====================
@@ -33,7 +51,7 @@ class App(customtkinter.CTk):
             fg_color="black",
             image=self.Login_emailName_image,
         )
-        self.Login_emailName_image_Label.place(x=315,y=240)
+        self.Login_emailName_image_Label.place(x=500,y=140)
 
         # Label email name
         self.Login_emailName_text = customtkinter.CTkLabel(
@@ -42,7 +60,7 @@ class App(customtkinter.CTk):
             fg_color="black",
             font=("yu gothic ui SemiBold", 13 * -1),
         )
-        self.Login_emailName_text.place(x=350, y=240)
+        self.Login_emailName_text.place(x=550, y=140)
 
         # input email
         email=StringVar()
@@ -52,7 +70,7 @@ class App(customtkinter.CTk):
                                             height=30,
                                             corner_radius=30,
                                             bg_color="black")
-        self.email_entry.place(x=350,y=290)
+        self.email_entry.place(x=550,y=190)
         # ================ Email Name Section =======================
         # *******************************************************************
         # *******************************************************************
@@ -67,7 +85,7 @@ class App(customtkinter.CTk):
             image=self.Login_pwdName_image,
             bg_color="black"
         )
-        self.Login_pwdName_image_Label.place(x=320, y=340)
+        self.Login_pwdName_image_Label.place(x=500, y=240)
 
         # Label password name
         self.Login_pwdName_text = customtkinter.CTkLabel(
@@ -76,7 +94,7 @@ class App(customtkinter.CTk):
             fg_color="black",
             font=("yu gothic ui SemiBold", 13 * -1),
         )
-        self.Login_pwdName_text.place(x=350, y=340)
+        self.Login_pwdName_text.place(x=550, y=240)
 
         # input password
         pwd=StringVar()
@@ -86,7 +104,7 @@ class App(customtkinter.CTk):
                                             height=30,
                                             corner_radius=30,
                                             bg_color="black")
-        self.pwd_Entry.place(x=350,y=390)
+        self.pwd_Entry.place(x=550,y=290)
         # ================ PASSWORD Name Section ====================
         # ================ Submit button ============================
         self.Login_button = customtkinter.CTkButton(
@@ -101,7 +119,7 @@ class App(customtkinter.CTk):
             font=("yu gothic ui Bold", 16 * -1),
             corner_radius=20,
         )
-        self.Login_button.place(x=390, y=500)
+        self.Login_button.place(x=600, y=400)
 
         # ================ Submit button ============================
         # ================ forget button ============================
@@ -119,7 +137,7 @@ class App(customtkinter.CTk):
             cursor="hand2",
             command=lambda: top.ToplevelWindow(self).forgot_password(),
         )
-        self.forgotPassword.place(x=320, y=440)
+        self.forgotPassword.place(x=500, y=340)
         # ================ forget button ============================
         # ================ sign in button ============================
         self.forgotPassword = customtkinter.CTkButton(
@@ -135,7 +153,7 @@ class App(customtkinter.CTk):
             cursor="hand2",
             command=lambda: top.ToplevelWindow(self).signIN(),
         )
-        self.forgotPassword.place(x=550, y=440)
+        self.forgotPassword.place(x=750, y=340)
         # ================ sign in button ============================
         # ============================= GO TO SIGN UP =============================
 

@@ -17,3 +17,5 @@ drt class App()
 		hadik self.Login_backgroundImage bity diri label fo9 menha donc west label fblast madiri self kadiri self.Login_backgroundImage 
 		mhm text : katinserer text li biti iban 
 		fg_color : i3ni lon dyal background dyal dik image 
+
+		

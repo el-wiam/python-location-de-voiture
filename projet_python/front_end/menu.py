@@ -3,7 +3,7 @@ import customtkinter
 import top
 
 
-class menu(customtkinter.CTk):
+class menuu(customtkinter.CTk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -15,6 +15,7 @@ class menu(customtkinter.CTk):
         self.title("menu")
         self.config(bg='black')
 
+    def menu(self):
         self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
         self.bg_imageLogo = customtkinter.CTkLabel(
             self,
@@ -48,7 +49,22 @@ class menu(customtkinter.CTk):
         )
         self.Login_button.place(x=600, y=200)
         # ================ add a car button ============================
-        self.Login_button = customtkinter.CTkButton(
+        self.add_car = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" consulter la liste des voitures ",
+            bg_color="black",
+            cursor="hand2",
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: top.ToplevelWindow(self).addcar(),
+        )
+        self.add_car.place(x=600, y=300)    
+        # ================ see cars button ============================
+        self.see_car = customtkinter.CTkButton(
             self,
             width=230,
             height=40,
@@ -60,9 +76,5 @@ class menu(customtkinter.CTk):
             font=("yu gothic ui Bold", 16 * -1),
             corner_radius=20,
         )
-        self.Login_button.place(x=600, y=300)
-
-
-if __name__ == "__main__":
-    app = menu()
-    app.mainloop()
+        self.see_car.place(x=600, y=300)      
+    

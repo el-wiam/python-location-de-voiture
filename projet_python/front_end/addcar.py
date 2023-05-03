@@ -146,7 +146,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 font=("yu gothic ui bold", 16 * -1),
                                                 cursor='hand2',
                                                 command= uploadImg)
-        self.imageButton.place(x=600, y=300)
+        self.imageButton.place(x=600, y=400)
 
         # button
         self.signButton = customtkinter.CTkButton(  self, 

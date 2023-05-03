@@ -1,15 +1,26 @@
-
+import modelClient
 class Client:
     num_Permis=''
 
     def __init__(self) -> None:
         pass
 
-    def reserver_voiture():
-        return True
     
-    def annuler_reservation():
-        return True
+    def creer(self):
+        return modelClient.ClientModel.creer_client(self)
     
-    def modifier_reservation():
-        return True
+    def modifier(self,id):
+        return modelClient.ClientModel.modifier_client(self,id)
+    
+    def supprimer(self,id):
+        return modelClient.ClientModel.supprimer_client(self,id)
+    
+
+    # def reserver_voiture():
+    #     return True
+    
+    # def annuler_reservation():
+    #     return True
+    
+    # def modifier_reservation():
+    #     return True

@@ -1,44 +1,26 @@
-import modelVoiture as voiture
-import admin as admin
+import modelClient
+import modelVoiture  
+class Voiture:
 
-class voiture:
-    marque=''
-    modele=''
-    image=''
-    type_carburant=''
-    nb_places=''
-    transmission=''
-    prix_location=''
-    disponibilite=True
+    def __init__(self) -> None:
+        pass
 
-
-    def __init__(self,marque=None,modele=None,image=None,type_carburant=None,nb_places=0,transmission=None,prix_location=0,disponibilite=True):  
-
-        self.marque=marque
-        self.modele=modele
-        self.image=image
-        self.type_carburant=type_carburant
-        self.nb_places=nb_places
-        self.transmission=transmission
-        self.prix_location=prix_location
-        self.disponibilite=disponibilite
-
+    def creer(self):
+        return modelVoiture.VoitureModel.creer_voiture(self)
     
-    # def ajouterVoiture(self):
-    #     return vtrmodel.voitureModel.ajouter( self.marque,self.modele,self.image,self.type_carburant,self.nb_places,self.transmission,self.prix_location,self.disponibilite)
+    def modifier(self):
+        return modelVoiture.VoitureModel.modifier_voiture(self)
     
-    # def modifierVoiture(self,id):
-    #     return vtrmodel.voitureModel.modifier(id,self.marque,self.modele,self.image,self.type_carburant,self.nb_places,self.transmission,self.prix_location,self.disponibilite)
+    def supprimer(self,id):
+        return modelVoiture.VoitureModel.supprimer_voiture(self,id)
     
-    # def supprimerUser(id):
-    #     return voiture.voitureModel.supprimer(id)
+    # client
     
-    # def afficherUser():
-    #     return voiture.voitureModel.affichage()
-
-    # def authentifierUser(self,id):
-    #     return voiture.voitureModel.authentifier(id,self.username,self.pwd)
+    def creerClt(self):
+        return modelClient.ClientModel.creer_client(self)
     
-
-p1=voiture.voitureModel().ajouter("mercedes","2020","img.png","Carburant",20,"transmission",300,True)
-p2=admin.Admin(p1)
+    def modifierClt(self,id):
+        return modelClient.ClientModel.modifier_client(self,id)
+    
+    def supprimerClt(self,id):
+        return modelClient.ClientModel.supprimer_client(self,id)

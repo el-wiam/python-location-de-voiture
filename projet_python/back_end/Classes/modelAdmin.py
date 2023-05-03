@@ -1,18 +1,50 @@
-import connexion
-import modelUsers
-class modelAdmin(modelUsers.utilisateurModel):
-    def __init__(self):
-        super().__init__()
+import modelVoiture
+import modelClient
+class modelAdmin:
 
-        # Voiture
-    def creerVoiture(self,voiture):
+    def __init__(self,name,prenom):
+        self.name=name
+        self.prenom=prenom
+
+    def ajouterVoiture(voiture):
         try :
-            sql=("INSERT INTO voiture VALUES (%s)")
-            values=(voiture)
-            connexion.db.execute(sql,values)
-            connexion.conn.commit()
-        except:
-                print("erreur de creation voiture")
+            modelVoiture.VoitureModel.creer_voiture(voiture)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            
+    def modifierVoiture(id,voiture):
+        try :
+            modelVoiture.VoitureModel.modifier_voiture(voiture)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+
+    def supprimerVoiture(id):
+        try :
+            modelVoiture.VoitureModel.supprimer_voiture(id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            
+
+    # client :
+    def ajouterClient(client):
+        try :
+            modelClient.ClientModel.creer_client(client)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+
+
+    def modifierClient(id,client):
+        try :
+            modelClient.ClientModel.modifier_client(id,client)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+
+    def supprimerClient(id):
+        try :
+            modelClient.ClientModel.supprimer_client(id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            
     # def creerClient(username,email,pwd,nom_complet,cin,num_tel,num_permis):
     #     try :
     #         sql=("INSERT INTO user (username,email,password,nom_complet,cin,num_tel,num_permis) VALUES (%s,%s,%s,%s,%s,%s,%s)")

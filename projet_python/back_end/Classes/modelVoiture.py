@@ -1,14 +1,6 @@
 import connexion
 
 class voitureModel:
-    marque=''
-    modele=''
-    image=''
-    type_carburant=''
-    nb_places=''
-    transmission=''
-    prix_location=''
-    disponibilite=True
 
     def __init__(self) -> None:
         pass

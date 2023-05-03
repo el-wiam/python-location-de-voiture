@@ -1,29 +1,42 @@
 
+import modelAdmin as ad
+import voiture as voiture
+
 class Admin:
-    
+
     def __init__(self) -> None:
         pass
 
-    def ajouter_voiture():
-        return True
-    
-    def ajouter_Client():
-        return True
+    def ajouter_voiture(self,voiture):
+        return ad.voitureModel.ajouter(voiture)
 
-    def supprimer_voiture():
-        return True
+#     def creerUser(self):
+#         return admin.modelAdmin.creerClient(self.username,self.email,self.pwd)
     
-    def supprimer_Client():
-        return True
+#     def modifierUser(self,id):
+#         return admin.modelAdmin.modifierClient(id,self.username,self.email,self.pwd)
     
-    def modifier_voiture():
-        return True
+#     def supprimerUser(self,id):
+#         return admin.modelAdmin.supprimerClient(id)
     
-    def modifier_Client():
-        return True
+#     def afficherUser(self):
+#         return admin.modelAdmin.affichageClient()
     
-    def consulter_reservation():
-        return True
+#     def ajouter_voiture(self):
+#         return admin.modelAdmin.creerVoiture(self.marque,self.modele,self.type_carburant,self.nb_places,self.transmission,self.prix_location,self.disponibilité,self.image)
+
+#     def modifier_voiture():
+#         return True
     
-    def consulter_client():
-        return True
+#     def supprimer_voiture(id):
+#         return admin.modelAdmin.creerVoiture(id)
+    
+    
+#     def consulter_reservation():
+#         return True
+    
+#     def consulter_client():
+#         return True
+    
+#     def consulter_voiture():
+#         return True

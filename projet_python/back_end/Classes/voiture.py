@@ -1,9 +1,6 @@
-<<<<<<< HEAD:projet_python/back_end/Classes/voiture.py
-import Model.modelVoiture as voiture
-=======
-import connexion
-import modelVoiture as vtrmodel
->>>>>>> 91ef90bea0bb27bcb82ad4bbc3f524ad7c92ec89:projet_python/back_end/voiture.py
+import modelVoiture as voiture
+import admin as admin
+
 class voiture:
     marque=''
     modele=''
@@ -15,7 +12,7 @@ class voiture:
     disponibilite=True
 
 
-    def __init__(self,marque=None,modele=None,image=None,type_carburant=None,nb_places=None,transmission=None,prix_location=None,disponibilite=True):  
+    def __init__(self,marque=None,modele=None,image=None,type_carburant=None,nb_places=0,transmission=None,prix_location=0,disponibilite=True):  
 
         self.marque=marque
         self.modele=modele
@@ -27,11 +24,11 @@ class voiture:
         self.disponibilite=disponibilite
 
     
-    def ajouterVoiture(self):
-        return vtrmodel.voitureModel.ajouter( self.marque,self.modele,self.image,self.type_carburant,self.nb_places,self.transmission,self.prix_location,self.disponibilite)
+    # def ajouterVoiture(self):
+    #     return vtrmodel.voitureModel.ajouter( self.marque,self.modele,self.image,self.type_carburant,self.nb_places,self.transmission,self.prix_location,self.disponibilite)
     
-    def modifierVoiture(self,id):
-        return vtrmodel.voitureModel.modifier(id,self.marque,self.modele,self.image,self.type_carburant,self.nb_places,self.transmission,self.prix_location,self.disponibilite)
+    # def modifierVoiture(self,id):
+    #     return vtrmodel.voitureModel.modifier(id,self.marque,self.modele,self.image,self.type_carburant,self.nb_places,self.transmission,self.prix_location,self.disponibilite)
     
     # def supprimerUser(id):
     #     return voiture.voitureModel.supprimer(id)
@@ -42,3 +39,6 @@ class voiture:
     # def authentifierUser(self,id):
     #     return voiture.voitureModel.authentifier(id,self.username,self.pwd)
     
+
+p1=voiture.voitureModel().ajouter("mercedes","2020","img.png","Carburant",20,"transmission",300,True)
+p2=admin.Admin(p1)

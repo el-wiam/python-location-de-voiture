@@ -1,5 +1,4 @@
 import customtkinter 
-import car
 from tkinter import *
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -18,7 +17,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
 
         self.resizable(False, False)
 
-    def signIN(self):
+    
+    def addcar(self):
         # Nom
         self.label_nom = customtkinter.CTkLabel(self, 
                                             text="Nom : ",
@@ -133,110 +133,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 cursor='hand2')
         self.signButton.place(x=380, y=410)
 
-    def forgot_password(self):
-        # Email
-        self.label_username = customtkinter.CTkLabel(self, 
-                                            text="Username / email : ",
-                                            bg_color="black")
-        self.label_username.place(x=440, y=100)
+        
 
-        self.username=customtkinter.CTkEntry(self,
-                                             bg_color="#3D404B",
-                                             fg_color="black",
-                                             width=200,
-                                             height=50
-                                             )
-        self.username.place(x=400, y=150) 
+        
 
-        # password 
-        self.label_username = customtkinter.CTkLabel(self, 
-                                            text="Password : ",
-                                            bg_color="black")
-        self.label_username.place(x=470, y=250)
-
-        self.PasswordEntry=customtkinter.CTkEntry(self,
-                                             bg_color="#3D404B",
-                                             fg_color="black",
-                                             width=200,
-                                             height=50)
-        self.PasswordEntry.place(x=400, y=300 ) 
-
-        # button
-        self.update_pass = customtkinter.CTkButton(  self, 
-                                                fg_color='#FFED00', 
-                                                text='Update Password', 
-                                                text_color="black",
-                                                bg_color='black',
-                                                width=256, 
-                                                height=45,
-                                                font=("yu gothic ui bold", 16 * -1),
-                                                cursor='hand2')
-        self.update_pass.place(x=380, y=410)
-    def menu(self):
-        self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
-        self.bg_imageLogo = customtkinter.CTkLabel(
-            self,
-            image=self.Logo_backgroundImage,
-            fg_color="black",
-            text="",
-        )
-        self.bg_imageLogo.place(x=0, y=0)
-
-        self.Logiin_backgroundImage = PhotoImage(file="assets\\carmenu (1).png")
-        self.bg_imageLogiin = customtkinter.CTkLabel(
-            self,
-            image=self.Logiin_backgroundImage,
-            fg_color="black",
-            text=""
-        )
-        self.bg_imageLogiin.place(x=20, y=120)
-
-        # ================ add a car button ============================
-        self.Login_button = customtkinter.CTkButton(
-            self,
-            width=230,
-            height=40,
-            text=" ajouter voiture",
-            bg_color="black",
-            cursor="hand2", 
-            fg_color="#FFED00",
-            text_color="black",
-            font=("yu gothic ui Bold", 16 * -1),
-            corner_radius=20,
-            command=lambda: car.ToplevelWindow(self).addcar()
-        )
-        self.Login_button.place(x=600, y=200)
-        # ================ add a car button ============================
-        self.add_car = customtkinter.CTkButton(
-            self,
-            width=230,
-            height=40,
-            text=" consulter la liste des voitures ",
-            bg_color="black",
-            cursor="hand2",
-            fg_color="#FFED00",
-            text_color="black",
-            font=("yu gothic ui Bold", 16 * -1),
-            corner_radius=20,
-        )
-        self.add_car.place(x=600, y=300)    
-        # ================ see cars button ============================
-        self.see_car = customtkinter.CTkButton(
-            self,
-            width=230,
-            height=40,
-            text=" consulter la liste des voitures ",
-            bg_color="black",
-            cursor="hand2",
-            fg_color="#FFED00",
-            text_color="black",
-            font=("yu gothic ui Bold", 16 * -1),
-            corner_radius=20,
-        )
-        self.see_car.place(x=600, y=300)      
-
-    def open_toplevel(self):
-        if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
-            self.toplevel_window = car.ToplevelWindow(self)  # create window if its None or destroyed
-        else:
-            self.toplevel_window.focus()  # if window exists focus it
+        

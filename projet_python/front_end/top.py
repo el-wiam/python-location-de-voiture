@@ -226,3 +226,4 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             self.toplevel_window = addcar.ToplevelWindow(self)  # create window if its None or destroyed
         else:
             self.toplevel_window.focus()  # if window exists focus it
+

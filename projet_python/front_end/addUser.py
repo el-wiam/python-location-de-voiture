@@ -1,21 +1,22 @@
+import customtkinter 
 from tkinter import *
-import customtkinter
-from PIL import Image,ImageTk
-from tkinter import filedialog
-import top
 
-
-class menu(customtkinter.CTk):
+class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # self.geometry("400x300")
+        window_width = 1000
+        window_height = 600
+        bg_color="black",
+        screen_width = self.winfo_screenwidth()
+        screen_height = self.winfo_screenheight()
+        position_top = int(screen_height / 4 - window_height / 4)
+        position_right = int(screen_width / 2 - window_width / 2)
+        self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
+        self.config(bg="black")
+        self.title('sign up')
 
-        height = 600
-        width = 1000
-        x = (self.winfo_screenwidth() // 2) - (width // 2)
-        y = (self.winfo_screenheight() // 4) - (height // 4)
-        self.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-        self.title("menu")
-        self.config(bg='black')
+        self.resizable(False, False)
 
         self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
         self.bg_imageLogo = customtkinter.CTkLabel(
@@ -25,7 +26,8 @@ class menu(customtkinter.CTk):
             text="",
         )
         self.bg_imageLogo.place(x=0, y=0)
-
+    def addUser(self):
+        # Marque
         self.label_nom = customtkinter.CTkLabel(self, 
                                             text="Nom complet : ",
                                             bg_color="black")
@@ -137,7 +139,7 @@ class menu(customtkinter.CTk):
         # button
         self.signButton = customtkinter.CTkButton(  self, 
                                                 fg_color='#FFED00', 
-                                                text='AJOUTER', 
+                                                text='SIGN UP', 
                                                 text_color="black",
                                                 bg_color='black',
                                                 width=256, 
@@ -145,8 +147,4 @@ class menu(customtkinter.CTk):
                                                 font=("yu gothic ui bold", 16 * -1),
                                                 cursor='hand2')
         self.signButton.place(x=380, y=500)
-
-
-if __name__ == "__main__":
-    app = menu()
-    app.mainloop()
+        

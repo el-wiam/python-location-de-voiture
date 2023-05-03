@@ -13,6 +13,7 @@ class App(customtkinter.CTk):
         self.geometry('{}x{}+{}+{}'.format(width, height, x, y))
         self.title("login")
         self.config(bg='black')
+        
         self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
         self.bg_imageLogo = customtkinter.CTkLabel(
             self,

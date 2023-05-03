@@ -1,6 +1,7 @@
 from tkinter import *
 import customtkinter
 import top
+import addUser
 
 class App(customtkinter.CTk):
     def __init__(self, *args, **kwargs):
@@ -153,7 +154,7 @@ class App(customtkinter.CTk):
             hover_color="black",
             border_width=0,
             cursor="hand2",
-            command=lambda: top.ToplevelWindow(self).signIN(),
+            command=lambda: addUser.ToplevelWindow(self).addUser(),
         )
         self.forgotPassword.place(x=750, y=340)
         # ================ sign in button ============================

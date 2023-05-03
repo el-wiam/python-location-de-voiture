@@ -1,5 +1,6 @@
 import customtkinter 
 import addcar
+import seecars
 
 from tkinter import *
 class ToplevelWindow(customtkinter.CTkToplevel):
@@ -219,6 +220,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             text_color="black",
             font=("yu gothic ui Bold", 16 * -1),
             corner_radius=20,
+            command=lambda: seecars.ToplevelWindow(self).seecars()
         )
         self.see_car.place(x=600, y=300)      
 

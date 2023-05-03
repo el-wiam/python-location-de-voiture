@@ -203,7 +203,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             text_color="black",
             font=("yu gothic ui Bold", 16 * -1),
             corner_radius=20,
-            command=lambda: car.ToplevelWindow(self).addcar()
+            command=lambda: car.ToplevelWindow.addcar(self)
         )
         self.Login_button.place(x=600, y=200)
         # ================ add a car button ============================
@@ -240,3 +240,4 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             self.toplevel_window = car.ToplevelWindow(self)  # create window if its None or destroyed
         else:
             self.toplevel_window.focus()  # if window exists focus it
+

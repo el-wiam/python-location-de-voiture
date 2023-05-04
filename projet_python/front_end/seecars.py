@@ -1,6 +1,9 @@
 import customtkinter 
 from tkinter import *
+<<<<<<< HEAD
 import connexion as conn
+=======
+>>>>>>> 8eb58bdc3c63ca2783802c399896a06bac6f9b09
 # import back_end.Classes.connexion as conn
 
 
@@ -17,7 +20,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         position_right = int(screen_width / 2 - window_width / 2)
         self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
         self.config(bg="black")
-        self.title('sign up')
+        self.title('check the cars')
 
         self.resizable(False, False)
 

@@ -1,12 +1,7 @@
 import customtkinter 
 from tkinter import *
-<<<<<<< HEAD
-import connexion as conn
-=======
-from back_end.Classes import connexion as conn
 # import back_end.Classes.connexion as conn
 
->>>>>>> 8eb58bdc3c63ca2783802c399896a06bac6f9b09
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -21,7 +16,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         position_right = int(screen_width / 2 - window_width / 2)
         self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
         self.config(bg="black")
-        self.title('check the users')
+        self.title('check reservation')
 
         self.resizable(False, False)
 
@@ -35,12 +30,11 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.bg_imageLogo.place(x=0, y=0)
     def seecars(self):
         my_conn=conn.db
-        my_conn.execute("select * from user")
+        my_conn.execute("select * from reservation")
         i=0
-        for user in my_conn:
-            for j in range(len(user)):
-                e = Label(self,width=10, text=user[j],
-	                borderwidth=2,relief='ridge', anchor="w") 
+        for res in my_conn:
+            for j in range(len(res)):
+                e= Entry(self, width=10, fg='blue')
                 e.grid(row=i, column=j) 
-                e.insert(END,user[j])
+                e.insert(END,res[j])
             i=i+1

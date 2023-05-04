@@ -4,7 +4,7 @@ import top
 import addUser
 
 
-class App(customtkinter.CTk):
+class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -47,6 +47,7 @@ class App(customtkinter.CTk):
         # ============================= GO TO SIGN UP =============================
         # ================ Email Name Section ====================
         # ICON email
+    def login(self):    
         self.Login_emailName_image = PhotoImage(file="assets\\iconeEmail.png")
         self.Login_emailName_image_Label = customtkinter.CTkLabel(
             self,
@@ -121,7 +122,7 @@ class App(customtkinter.CTk):
             text_color="black",
             font=("yu gothic ui Bold", 16 * -1),
             corner_radius=20,
-            command=lambda: top.ToplevelWindow(self).menu(),
+            command=lambda: top.ToplevelWindow(self).menuadmin(),
         )
         self.Login_button.place(x=600, y=400)
 
@@ -172,7 +173,5 @@ class App(customtkinter.CTk):
         else:
             self.toplevel_window.focus()  # if window exists focus it
 
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+
     

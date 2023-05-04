@@ -1,12 +1,14 @@
 from tkinter import *
 import customtkinter
-from tkinter import filedialog
+import top
 import toplevel
 import addUser
 import seecars
 
 
-class menu(customtkinter.CTk):
+
+
+class App(customtkinter.CTk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -15,9 +17,9 @@ class menu(customtkinter.CTk):
         x = (self.winfo_screenwidth() // 2) - (width // 2)
         y = (self.winfo_screenheight() // 4) - (height // 4)
         self.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-        self.title("menu")
+        self.title("WELCOME")
         self.config(bg='black')
-
+        
         self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
         self.bg_imageLogo = customtkinter.CTkLabel(
             self,
@@ -26,8 +28,8 @@ class menu(customtkinter.CTk):
             text="",
         )
         self.bg_imageLogo.place(x=0, y=0)
+        # self.bg_imageLogo.pack(side="left", padx=0, pady=0)
 
-        
         self.Logiin_backgroundImage = PhotoImage(file="assets\\first.png")
         self.bg_imageLogiin = customtkinter.CTkLabel(
             self,
@@ -85,7 +87,15 @@ class menu(customtkinter.CTk):
         )
         self.seecars.place(x=600, y=450)
 
+        
+
+    def open_toplevel(self):
+        if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
+            self.toplevel_window = top.ToplevelWindow(self)  # create window if its None or destroyed
+        else:
+            self.toplevel_window.focus()  # if window exists focus it
 
 if __name__ == "__main__":
-    app = menu()
+    app = App()
     app.mainloop()
+    

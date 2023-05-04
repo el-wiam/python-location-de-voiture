@@ -40,12 +40,12 @@ class App(customtkinter.CTk):
         self.bg_imageLogiin.place(x=0, y=120)
 
         self.label_nom = customtkinter.CTkLabel(self, 
-                                            text="BIENVENUE  ",
+                                            text="BIENVENUS  ",
                                             width=200,
                                             height=50,
                                             font=('Arial', 25),
                                             bg_color="black")
-        self.label_nom.place(x=500, y=80)
+        self.label_nom.place(x=400, y=80)
 
         self.signup = customtkinter.CTkButton(
                                                 self, 

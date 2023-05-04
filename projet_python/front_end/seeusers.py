@@ -17,7 +17,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         position_right = int(screen_width / 2 - window_width / 2)
         self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
         self.config(bg="black")
-        self.title('sign up')
+        self.title('check the users')
 
         self.resizable(False, False)
 

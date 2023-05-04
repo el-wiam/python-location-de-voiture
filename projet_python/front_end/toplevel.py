@@ -122,7 +122,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             text_color="black",
             font=("yu gothic ui Bold", 16 * -1),
             corner_radius=20,
-            command=lambda: top.ToplevelWindow(self).menu(),
+            command=lambda: top.ToplevelWindow(self).menuadmin(),
         )
         self.Login_button.place(x=600, y=400)
 

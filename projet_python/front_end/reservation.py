@@ -1,22 +1,23 @@
+import customtkinter 
 from tkinter import *
-import customtkinter
-from tkinter import filedialog
-import toplevel
-import addUser
-import seecars
+import back_end.Classes.connexion as conn
 
-
-class menu(customtkinter.CTk):
+class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # self.geometry("400x300")
+        window_width = 1000
+        window_height = 600
+        bg_color="black",
+        screen_width = self.winfo_screenwidth()
+        screen_height = self.winfo_screenheight()
+        position_top = int(screen_height / 4 - window_height / 4)
+        position_right = int(screen_width / 2 - window_width / 2)
+        self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
+        self.config(bg="black")
+        self.title('sign up')
 
-        height = 700
-        width = 1000
-        x = (self.winfo_screenwidth() // 2) - (width // 2)
-        y = (self.winfo_screenheight() // 4) - (height // 4)
-        self.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-        self.title("menu")
-        self.config(bg='black')
+        self.resizable(False, False)
 
         self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
         self.bg_imageLogo = customtkinter.CTkLabel(
@@ -25,6 +26,8 @@ class menu(customtkinter.CTk):
             fg_color="black",
             text="",
         )
+        self.bg_imageLogo.place(x=0, y=0)
+    def reservation(self):
         self.bg_imageLogo.place(x=0, y=0)
         self.Logiin_backgroundImage = PhotoImage(file="assets\\reservation.png")
         self.bg_imageLogiin = customtkinter.CTkLabel(
@@ -93,9 +96,12 @@ class menu(customtkinter.CTk):
         self.label_Password = customtkinter.CTkLabel(self, 
                                             text="choisir une voiture: ",
                                             bg_color="black")
-        self.label_Password.place(x=450, y=500)   
+        self.label_Password.place(x=450, y=500)
+        c=conn.db
+        c.execute("select marque from voiture")
+        listvoiture=c.fetchall()   
         combobox = customtkinter.CTkComboBox(self,
-                                     values=["dispo", "non-dispo"],
+                                     values=listvoiture,
                                      dropdown_fg_color="black",
                                      text_color="white",
                                      width=200,
@@ -116,8 +122,3 @@ class menu(customtkinter.CTk):
                                                 font=("yu gothic ui bold", 16 * -1),
                                                 cursor='hand2')
         self.signButton.place(x=380, y=600)
-
-
-if __name__ == "__main__":
-    app = menu()
-    app.mainloop()

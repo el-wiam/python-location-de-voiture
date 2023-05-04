@@ -174,7 +174,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 font=("yu gothic ui bold", 16 * -1),
                                                 cursor='hand2')
         self.update_pass.place(x=380, y=410)
-    def menu(self):
+    def menuadmin(self):
         self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
         self.bg_imageLogo = customtkinter.CTkLabel(
             self,

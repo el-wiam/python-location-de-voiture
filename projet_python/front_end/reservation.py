@@ -65,7 +65,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              width=200,
                                              height=50)
         self.prenomEntry.place(x=600, y=200) 
-        # type_carburant
+        # cin
         self.label_username = customtkinter.CTkLabel(self, 
                                             text="CIN  : ",
                                             bg_color="black")
@@ -79,7 +79,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              height=50)
         self.usernameEntry.place(x=600, y=300) 
 
-        # prix de location
+        # permis
         self.label_Email = customtkinter.CTkLabel(self, 
                                             text="numero de permis : ",
                                             bg_color="black")

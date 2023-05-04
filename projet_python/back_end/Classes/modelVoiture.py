@@ -1,6 +1,6 @@
 import connexion
 import itertools
-
+import traceback
 class VoitureModel:
 
     id = itertools.count()
@@ -25,20 +25,21 @@ class VoitureModel:
         self.disponibilité=disponibilité
         self.image=image
 
-    def convertToBinary(filename):
-        with open(filename,'rb') as file:
-            bd=file.read()
-        return bd
+    def convertToBinary(self, image_path):
+        with open(image_path, 'rb') as image_file:
+            binary_data = image_file.read()
+        return binary_data
 
     def creer_voiture(self):
-        try :
-            sql=("INSERT INTO voiture (marque,modele,type_carburant,nb_places,transmission,prix_location,disponibilité,image) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)")
-            pic=self.convertToBinary('images/{self.image}')
-            values=(self.marque,self.modele,self.type_carburant,self.nb_places,self.transmission,self.prix_location,self.disponibilité,pic)
-            connexion.db.execute(sql,values)
+        try:
+            sql = "INSERT INTO voiture (marque, modele, type_carburant, nb_places, transmission, prix_location, disponibilité, image) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+            pic = self.convertToBinary(f'images/{self.image}')
+            values = (self.marque, self.modele, self.type_carburant, self.nb_places, self.transmission, self.prix_location, self.disponibilité, pic)
+            connexion.db.execute(sql, values)
             connexion.conn.commit()
         except Exception as e:
-                print("Error Type:", type(e).__name__)
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
 
     def modifier_voiture(self,id):
         try :

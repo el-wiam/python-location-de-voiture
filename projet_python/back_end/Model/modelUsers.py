@@ -1,4 +1,4 @@
-import connexion
+import Classes.connexion as connexion
 class utilisateurModel:
     id
     username=''

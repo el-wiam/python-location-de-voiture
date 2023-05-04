@@ -3,6 +3,7 @@ import customtkinter
 import top
 import addUser
 
+
 class App(customtkinter.CTk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

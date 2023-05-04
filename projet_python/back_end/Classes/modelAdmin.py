@@ -49,3 +49,5 @@ class modelAdmin:
     
     def consulter_client():
         return True
+
+ 

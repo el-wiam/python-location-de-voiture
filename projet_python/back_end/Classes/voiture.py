@@ -6,8 +6,18 @@ class Voiture:
         pass
 
     def creer(self):
-        return modelVoiture.VoitureModel.creer_voiture(self)
-    
+        voiture_model = modelVoiture.VoitureModel(
+            marque='',
+            modele='',
+            type_carburant='',
+            nb_places=0,
+            transmission=0,
+            prix_location=0,
+            disponibilité=True,
+            image=''
+        )
+        return voiture_model.creer_voiture()
+
     def modifier(self):
         return modelVoiture.VoitureModel.modifier_voiture(self)
     
@@ -24,3 +34,6 @@ class Voiture:
     
     def supprimerClt(self,id):
         return modelClient.ClientModel.supprimer_client(self,id)
+
+voiture_instance = Voiture()
+voiture_instance.creer()

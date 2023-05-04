@@ -1,6 +1,5 @@
 from tkinter import *
 import customtkinter
-from PIL import Image,ImageTk
 from tkinter import filedialog
 import top
 

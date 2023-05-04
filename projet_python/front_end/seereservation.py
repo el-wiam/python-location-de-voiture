@@ -30,11 +30,11 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.bg_imageLogo.place(x=0, y=0)
     def seecars(self):
         my_conn=conn.db
-        my_conn.execute("select * from voiture")
+        my_conn.execute("select * from reservation")
         i=0
-        for car in my_conn:
-            for j in range(len(car)):
+        for res in my_conn:
+            for j in range(len(res)):
                 e= Entry(self, width=10, fg='blue')
                 e.grid(row=i, column=j) 
-                e.insert(END,car[j])
+                e.insert(END,res[j])
             i=i+1

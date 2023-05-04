@@ -52,7 +52,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              height=50)
         self.nomEntry.place(x=600, y=100) 
 
-        # modele 
+        # num
         self.label_prenom = customtkinter.CTkLabel(self, 
                                             text="Numero de telephone : ",
                                             bg_color="black")

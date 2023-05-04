@@ -1,6 +1,7 @@
 import customtkinter 
 from tkinter import *
-import back_end.Classes.connexion as conn
+from back_end.Classes import connexion as conn
+# import back_end.Classes.connexion as conn
 
 
 class ToplevelWindow(customtkinter.CTkToplevel):
@@ -34,7 +35,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         i=0
         for user in my_conn:
             for j in range(len(user)):
-                e= Entry(self, width=10, fg='blue')
+                e = Label(self,width=10, text=user[j],
+	                borderwidth=2,relief='ridge', anchor="w") 
                 e.grid(row=i, column=j) 
                 e.insert(END,user[j])
             i=i+1

@@ -1,7 +1,5 @@
 import modelClient
 class Client:
-    num_Permis=''
-
     def __init__(self) -> None:
         pass
 

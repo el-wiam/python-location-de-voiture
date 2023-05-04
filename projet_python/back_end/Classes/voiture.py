@@ -20,7 +20,7 @@ class Voiture:
         return modelClient.ClientModel.creer_client(self)
     
     def modifierClt(self,id):
-        return modelClient.ClientModel.modifier_client(self,id)
+        return modelClient.ClientModel.modifier_client(self)
     
     def supprimerClt(self,id):
         return modelClient.ClientModel.supprimer_client(self,id)

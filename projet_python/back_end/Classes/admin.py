@@ -1,5 +1,6 @@
 import modelVoiture 
 import modelAdmin
+import modelClient
 class admin:
     def __init__(self) -> None:
         pass
@@ -23,8 +24,19 @@ class admin:
     def supprimerUser(id):
         return modelAdmin.modelAdmin.supprimerClient(id)
     
-# p1=m_voiture.Voiturem("wiam","wiam","wiam",10002,"wiam",20002,True,"wiam.png")
+# p1=modelVoiture.VoitureModel("modifier","modifier","modifier",10002,"modifier",20002,True,"modifier.png")
+# 
+# p2=modelAdmin.modelAdmin("safaa","batrahi")
 
-# p2=adminModel.Modeladmin("safaa","batrahi")
+# p2.ajouterVoiture(p1)
 
-# p2.ajouter(p1)
+# p2.modifierVoiture(8,p1)
+# p2.supprimerVoiture(20)
+
+#test client 
+
+clt=modelClient.ClientModel("mod","mod",200,"mod","mod","mod",3000)
+ad=modelAdmin.modelAdmin()
+# ad.ajouterClient(clt)
+# ad.modifierClient(1,clt)
+# ad.supprimerClient(1)

@@ -1,26 +1,10 @@
 import connexion
-import itertools
-
-class ClientModel:
-    id = itertools.count()
-
-    nom_complet=''
-    cin=''
-    num_tel=0
-    username=''
-    password=''
-    email=''
+import modelUsers
+class ClientModel(modelUsers):
     num_permis=0
 
     def __init__(self,nom_complet,cin,num_tel,username,password,email,num_permis):
-        self.id = next(ClientModel.id)
-
-        self.nom_complet=nom_complet
-        self.cin=cin
-        self.num_tel=num_tel
-        self.username=username
-        self.password=password
-        self.email=email
+        modelUsers.utilisateurModel(self,nom_complet,cin,num_tel,username,password,email)
         self.num_permis=num_permis
 
 
@@ -33,15 +17,15 @@ class ClientModel:
         except Exception as e:
                 print("Error Type:", type(e).__name__)
 
-    def modifier_client(self,id):
+    def modifier_client(id,self):
         try :
             sql="UPDATE user set nom_complet = (%s),cin = (%s),num_tel = (%s),username = (%s),password = (%s),email = (%s) ,num_permis = (%s) WHERE id = (%s)"
             values=(self.nom_complet,self.cin,self.num_tel,self.username,self.password,self.email,self.num_permis,id)
             connexion.db.execute(sql,values)
             connexion.conn.commit()
             print("la description bien change")
-        except:
-            print("erreur de modification")
+        except Exception as e:
+                print("Error Type:", type(e).__name__)
 
     def supprimer_client(id):
         try :
@@ -51,3 +35,14 @@ class ClientModel:
             print("suppression client valide")
         except:
             print('erreur de suppression client !!!')
+    
+
+    
+    def reserver_voiture():
+        return 
+    
+    def annuler_reservation():
+        return True
+    
+    def modifier_reservation():
+        return True

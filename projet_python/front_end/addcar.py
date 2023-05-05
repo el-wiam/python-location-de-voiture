@@ -1,6 +1,7 @@
 import customtkinter 
 from tkinter import *
 from tkinter import filedialog
+import connexion as conn
 
 
 class ToplevelWindow(customtkinter.CTkToplevel):
@@ -135,7 +136,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.label_ConfirmPassword.place(x=450, y=400)
     
         def uploadImg():
-             filedialog.askopenfilename(initialdir =  "/", title = "Select an Image", filetype = (("jpeg files","*.jpg"),("PNG  files","*.png")))
+            img= filedialog.askopenfilename(initialdir =  "/", title = "Select an Image", filetype = (("jpeg files","*.jpg"),("PNG  files","*.png")))
+            
         self.imageButton = customtkinter.CTkButton(  self, 
                                                 fg_color='white', 
                                                 text='ajouter une image', 
@@ -145,7 +147,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 height=50,
                                                 font=("yu gothic ui bold", 16 * -1),
                                                 cursor='hand2',
-                                                command= uploadImg)
+                                                command= uploadImg())
         self.imageButton.place(x=600, y=400)
 
         # button

@@ -1,7 +1,7 @@
 import customtkinter 
 from tkinter import *
 from back_end.Classes import connexion as conn
-# import back_end.Classes.connexion as conn
+import connexion as conn
 
 
 class ToplevelWindow(customtkinter.CTkToplevel):
@@ -38,5 +38,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 e = Label(self,width=10, text=user[j],
 	                borderwidth=2,relief='ridge', anchor="w") 
                 e.grid(row=i, column=j) 
+                W=Label(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=0)
+                i=1                
                 e.insert(END,user[j])
             i=i+1

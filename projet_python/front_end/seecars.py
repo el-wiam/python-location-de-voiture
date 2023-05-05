@@ -1,10 +1,7 @@
 import customtkinter 
 from tkinter import *
-<<<<<<< HEAD
 import connexion as conn
-=======
->>>>>>> 8eb58bdc3c63ca2783802c399896a06bac6f9b09
-# import back_end.Classes.connexion as conn
+
 
 
 class ToplevelWindow(customtkinter.CTkToplevel):
@@ -40,5 +37,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             for j in range(len(car)):
                 e= Entry(self, width=10, fg='blue')
                 e.grid(row=i, column=j) 
+                W=Label(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=0)
+                i=1
                 e.insert(END,car[j])
             i=i+1

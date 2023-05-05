@@ -1,6 +1,6 @@
 import customtkinter 
 from tkinter import *
-import back_end.Classes.connexion as conn
+import connexion as conn
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):

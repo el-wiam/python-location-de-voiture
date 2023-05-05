@@ -1,25 +1,30 @@
-import modelClient
-class Client:
-    def __init__(self) -> None:
-        pass
-
+import users
+import traceback
+import clientModel
+class Client(users.utilisateur):
+    def __init__(self,nomComplet='',cin='',numTel='',username='',password='',email='',numPermis=''):
+        users.utilisateur.__init__(self,nomComplet,cin,numTel,username,password,email,numPermis)
     
-    def creer(self):
-        return modelClient.ClientModel.creer_client(self)
-    
-    def modifier(self,id):
-        return modelClient.ClientModel.modifier_client(self,id)
-    
-    def supprimer(self,id):
-        return modelClient.ClientModel.supprimer_client(self,id)
+    def reserver_voiture(self,voiture_id, date_debut, date_fin):
+        try:
+            return clientModel.ClientModel.reserver_voiture(voiture_id, date_debut, date_fin,self.id)
+        except Exception as e:
+                print("Error Type:", type(e).__name__)
+                traceback.print_exc()
 
-    def reserverVoiture(self, voiture_id,date_debut, date_fin):
-        return modelClient.ClientModel.reserver_voiture(self, voiture_id,date_debut, date_fin)
-    
+    def annuler_reservation(self,id):
+        try:
+            return clientModel.ClientModel.annulerReservation(id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
 
-    def annulerReservation(self, reservation_id):
-        return modelClient.ClientModel.annuler_reservation(self, reservation_id)
-
-    def modifierReservation(self, reservation_id, nouvelle_date_debut, nouvelle_date_fin):
-        return modelClient.ClientModel.modifier_reservation(self, reservation_id, nouvelle_date_debut, nouvelle_date_fin)
-
+    def modifier_reservation(self,id):
+        try:
+            return clientModel.ClientModel.modifierReservation(id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
+c=Client()
+# c.annuler_reservation(3)
+c.reserver_voiture(66,"2024-09-16","2024-09-18")

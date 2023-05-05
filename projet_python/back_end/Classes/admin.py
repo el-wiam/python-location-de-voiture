@@ -1,50 +1,86 @@
-import modelVoiture 
-import modelAdmin
-import modelClient
-class admin:
-    def __init__(self) -> None:
-        pass
+# import adminModel
+import traceback
+import voiture
+import adminModel
+import users
+import client
 
-    def ajouterVehicule(self,voiture):
-        return modelAdmin.modelAdmin.ajouterVoiture(voiture)
+class Admin(users.utilisateur):
+    def __init__(self,nomComplet='',cin='',numTel='',username='',password='',email='',numPermis=''):
+        users.utilisateur.__init__(self,nomComplet,cin,numTel,username,password,email,numPermis)
     
-    def modifierVehicule(self,voiture,id):
-        return modelAdmin.modelAdmin.modifierVoiture(voiture,id)
+    # VOITURE 
+    def ajouterVoiture(self,voiture):
+        try:
+            return adminModel.Modeladmin.ajouterV(voiture)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
+
+    def modifierVoiture(self,voiture,id):
+        try:
+            return adminModel.Modeladmin.modifierV(voiture,id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
+
+    def supprimerVoiture(self,id):
+        try:
+            return adminModel.Modeladmin.supprimerV(id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
+
+# ====================================================================================================================================
+# ====================================================================================================================================
     
-    def supprimerVehicule(self,id):
-        return modelAdmin.modelAdmin.supprimerVoiture(id)
-    
-    # client 
-    def ajouterUser(self,Client):
-        return modelAdmin.modelAdmin.ajouterClient(Client)
-    
-    def modifierUser(self,Client,id):
-        return modelAdmin.modelAdmin.modifierClient(Client,id)
-    
-    def supprimerUser(self,id):
-        return modelAdmin.modelAdmin.supprimerClient(id)
+    # CLIENT
+    def ajouterClient(self,client):
+        try:
+            return adminModel.Modeladmin.ajouterClt(client)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
+
+    def modifierClient(self,client,id):
+        try:
+            return adminModel.Modeladmin.modifierClt(client,id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
+
+    def supprimerClient(self,id):
+        try:
+            return adminModel.Modeladmin.supprimerClt(id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
 
     def consulterReservation(self):
-        return modelAdmin.modelAdmin.consulterReservation()
-
-    def consulterUser(self):
-        return modelAdmin.modelAdmin.consulterClient()
+        try:
+            return adminModel.Modeladmin.consulterReservation()
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
     
-# p1=modelVoiture.VoitureModel("modifier","modifier","modifier",10002,"modifier",20002,True,"modifier.png")
-# 
-# p2=modelAdmin.modelAdmin("safaa","batrahi")
+    def consulterUser(self):
+        try:
+            return adminModel.Modeladmin.consulterClients()
+        except Exception as e:
+                print("Error Type:", type(e).__name__)
+                traceback.print_exc()
 
-# p2.ajouterVoiture(p1)
+    
 
-# p2.modifierVoiture(8,p1)
-# p2.supprimerVoiture(20)
-
-#test client 
-
-# clt=modelClient.ClientModel("mod","mod",200,"mod","mod","mod",3000)
-# ad=modelAdmin.modelAdmin()
-# ad.ajouterClient(clt)
-# ad.modifierClient(1,clt)
-# ad.supprimerClient(1)
-# p2.ajouter(p1)
+# admin=Admin("nomComplet","cin",9998888,"username","password","email","29292")
+# v=voiture.voiture("marque","modele","typeCarburant",8,69,700,True,"image.png")
+# admin.ajouterVoiture(v)
+# admin=Admin()
+# admin.supprimerVoiture(44)
+# clt=client.Client("nomComplet","cin",9998888,"username","password","email","29292")
+# admin=Admin()
+# admin.ajouterClient(clt)
+# admin=Admin()
+# c=admin.consulterUser()
+# print(c)
 

@@ -42,3 +42,4 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 i=1
                 e.insert(END,car[j])
             i=i+1
+        

@@ -1,5 +1,6 @@
 
 import modelVoiture
+import connexion
 import modelClient
 import modelReservation
 
@@ -32,3 +33,14 @@ class reservation:
 
     def consulter_voiture(self, voiture_id):
         return modelVoiture.VoitureModel.consulter_voiture(voiture_id)
+
+                
+    def consulterReservation():
+        try:
+            sql = "SELECT * FROM reservation"
+            connexion.db.execute(sql)
+            reservations = connexion.db.fetchall()
+            return reservations
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+        return []

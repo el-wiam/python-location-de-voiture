@@ -1,14 +1,7 @@
 import customtkinter 
 from tkinter import *
-<<<<<<< HEAD
 import connexion as conn
-=======
-<<<<<<< HEAD
-import connexion as conn
-=======
->>>>>>> 8eb58bdc3c63ca2783802c399896a06bac6f9b09
-# import back_end.Classes.connexion as conn
->>>>>>> d836c96d77ce3e0e2992b4d8351dc98fd585c198
+
 
 
 class ToplevelWindow(customtkinter.CTkToplevel):

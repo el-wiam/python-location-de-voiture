@@ -24,7 +24,8 @@ class utilisateur:
     
     def authentifier(self,username, password):
         try:
-            return userModel.UserModel.authentifierUser(username,password)
+            self.id = userModel.UserModel.authentifierUser(username,password)
+            return id
         except Exception as e:
                 print("Error Type:", type(e).__name__)
                 traceback.print_exc()
@@ -36,6 +37,5 @@ class utilisateur:
                 print("Error Type:", type(e).__name__)
                 traceback.print_exc()
 
-u=utilisateur()
-# u.authentifier("migo","safaabatrahi123")
-# print(u.consulterVoiture())
+
+

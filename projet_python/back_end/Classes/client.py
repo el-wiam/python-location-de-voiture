@@ -25,6 +25,7 @@ class Client(users.utilisateur):
         except Exception as e:
             print("Error Type:", type(e).__name__)
             traceback.print_exc()
-c=Client()
+#c=Client()
+#c.authentifier("migo","safaabatrahi123")
 # c.annuler_reservation(3)
-c.reserver_voiture(66,"2024-09-16","2024-09-18")
+#c.reserver_voiture(66,"2025-09-16","2030-09-18")

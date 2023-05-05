@@ -23,6 +23,12 @@ class admin:
     
     def supprimerUser(self,id):
         return modelAdmin.modelAdmin.supprimerClient(id)
+
+    def consulterReservation(self):
+        return modelAdmin.modelAdmin.consulterReservation()
+
+    def consulterUser(self):
+        return modelAdmin.modelAdmin.consulterClient()
     
 # p1=modelVoiture.VoitureModel("modifier","modifier","modifier",10002,"modifier",20002,True,"modifier.png")
 # 

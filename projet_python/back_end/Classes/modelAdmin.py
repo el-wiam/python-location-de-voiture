@@ -1,5 +1,6 @@
 import modelVoiture
 import modelClient
+import connexion
 class modelAdmin:
     def __init__(self) -> None:
         pass
@@ -44,10 +45,23 @@ class modelAdmin:
             print("Error Type:", type(e).__name__)
             
         
-    def consulter_reservation():
-        return True
+    def consulterReservation():
+        try:
+            sql = "SELECT * FROM reservation"
+            connexion.db.execute(sql)
+            reservations = connexion.db.fetchall()
+            return reservations
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+        return []
     
-    def consulter_client():
-        return True
+    import modelClient
+
+    def consulterClient():
+        try:
+            return modelClient.ClientModel.consulter_clients()
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            return []
 
  

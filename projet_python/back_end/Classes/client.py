@@ -12,13 +12,14 @@ class Client:
     
     def supprimer(self,id):
         return modelClient.ClientModel.supprimer_client(self,id)
+
+    def reserverVoiture(self, voiture_id,date_debut, date_fin):
+        return modelClient.ClientModel.reserver_voiture(self, voiture_id,date_debut, date_fin)
     
 
-    # def reserver_voiture():
-    #     return True
-    
-    # def annuler_reservation():
-    #     return True
-    
-    # def modifier_reservation():
-    #     return True
+    def annulerReservation(self, reservation_id):
+        return modelClient.ClientModel.annuler_reservation(self, reservation_id)
+
+    def modifierReservation(self, reservation_id, nouvelle_date_debut, nouvelle_date_fin):
+        return modelClient.ClientModel.modifier_reservation(self, reservation_id, nouvelle_date_debut, nouvelle_date_fin)
+

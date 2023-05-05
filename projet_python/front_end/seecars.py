@@ -55,3 +55,4 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 W=Label(self,width=10,text='image',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=7)
             i=i+1
+            

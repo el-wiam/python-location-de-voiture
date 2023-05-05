@@ -1,6 +1,7 @@
 import customtkinter 
 from tkinter import *
 import connexion as conn
+import update
 
 
 class ToplevelWindow(customtkinter.CTkToplevel):
@@ -50,3 +51,17 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 W=Label(self,width=10,text='voiture',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=6)            
             i=i+1
+            self.Login_button = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text="modifier reservation",
+            bg_color="black",
+            cursor="hand2",
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: update.ToplevelWindow(self).update(),
+        )
+        self.Login_button.place(x=600, y=550)

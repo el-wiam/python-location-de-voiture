@@ -40,12 +40,10 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 e.insert(END,car[j])
                 W=Label(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=0)
-<<<<<<< HEAD
                 i=1
                 e.insert(END,car[j])
             i=i+1
         
-=======
                 W=Label(self,width=10,text='marque',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=1)
                 W=Label(self,width=10,text='type de carburant',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
@@ -62,4 +60,3 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 W.grid(row=0,column=7)
             i=i+1
             
->>>>>>> c9e0c3f9b76d6ffacc4e1063321797e959c46add

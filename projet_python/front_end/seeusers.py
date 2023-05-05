@@ -38,8 +38,19 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 e = Label(self,width=10, text=user[j],
 	                borderwidth=2,relief='ridge', anchor="w") 
                 e.grid(row=i, column=j) 
+                e.insert(END,user[j])
                 W=Label(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=0)
-                i=1                
-                e.insert(END,user[j])
+                W=Label(self,width=10,text='nom complet',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=1)
+                W=Label(self,width=10,text='CIN',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=2)
+                W=Label(self,width=10,text='numero de telephone',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=3)
+                W=Label(self,width=10,text='Username',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=4)
+                W=Label(self,width=10,text='Email',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=6)
+                W=Label(self,width=10,text='Numero de permis de conduite',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=7)       
             i=i+1

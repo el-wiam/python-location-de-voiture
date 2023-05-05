@@ -24,8 +24,7 @@ The Car Rental System is built using the following technologies:
 
 - Python: The backend programming language used for implementing the system's logic and functionality.
 - MySQL: The database management system used for storing and retrieving data related to vehicles, clients, and reservations.
-- Flask: A web framework used for developing the system's API endpoints and handling HTTP requests and responses.
-- HTML/CSS: The front-end technologies used for creating the user interface of the system.
+- customTkinter: The front-end technologies used for creating the user interface of the system.
 - Connexion: A Python library that simplifies the integration of Flask with Swagger UI, providing a convenient API documentation and testing interface.
 ## Getting Started
 
@@ -35,7 +34,6 @@ To run the Car Rental System on your local machine, follow these steps:
 2. Install the required dependencies specified in the requirements.txt file.
 3. Set up a MySQL database and configure the connection details in the system's configuration file.
 4. Run the main application file to start the system.
-5. Access the system using a web browser and navigate through the available functionalities as an administrator or client.
 ## Contribution
 
 If you would like to contribute to the Car Rental System, please follow the guidelines below:

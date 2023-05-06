@@ -156,7 +156,9 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             voiture=self.combobox.get()
             dated=self.dateDEntry.get()
             datef=self.dateFEntry.get()
-
+            res=reservation.Reservation(nomc,num,cin,permis,voiture,dated,datef)
+            cli=client.Client()
+            cli.reserver_voiture(res)
         
 
         # button
@@ -168,5 +170,6 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 width=256, 
                                                 height=45,
                                                 font=("yu gothic ui bold", 16 * -1),
-                                                cursor='hand2')
+                                                cursor='hand2',
+                                                command=lambda:reserve())
         self.signButton.place(x=380, y=700)

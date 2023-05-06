@@ -1,16 +1,21 @@
 import customtkinter 
 from tkinter import *
-import sys 
-sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+import sys
+import os
 
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import connexion as conn
+from admin import *
+from voiture import voiture
+from client import Client
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # self.geometry("400x300")
         window_width = 1000
-        window_height = 600
+        window_height = 800
         bg_color="black",
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
@@ -18,7 +23,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         position_right = int(screen_width / 2 - window_width / 2)
         self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
         self.config(bg="black")
-        self.title('sign up')
+        self.title('reservation')
 
         self.resizable(False, False)
 
@@ -45,78 +50,118 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.label_nom = customtkinter.CTkLabel(self, 
                                             text="Nom complet : ",
                                             bg_color="black")
-        self.label_nom.place(x=450, y=100)
+        self.label_nom.place(x=450, y=80)
 
         self.nomEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
-                                             height=50)
-        self.nomEntry.place(x=600, y=100) 
+                                             height=40)
+        self.nomEntry.place(x=600, y=80) 
 
         # num
         self.label_prenom = customtkinter.CTkLabel(self, 
                                             text="Numero de telephone : ",
                                             bg_color="black")
-        self.label_prenom.place(x=450, y=200)
+        self.label_prenom.place(x=450, y=150)
 
         self.prenomEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
-                                             height=50)
-        self.prenomEntry.place(x=600, y=200) 
+                                             height=40)
+        self.prenomEntry.place(x=600, y=150) 
         # cin
         self.label_username = customtkinter.CTkLabel(self, 
                                             text="CIN  : ",
                                             bg_color="black")
-        self.label_username.place(x=450, y=300)
+        self.label_username.place(x=450, y=250)
 
         self.usernameEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
-                                             height=50)
-        self.usernameEntry.place(x=600, y=300) 
+                                             height=40)
+        self.usernameEntry.place(x=600, y=250) 
 
         # permis
         self.label_Email = customtkinter.CTkLabel(self, 
-                                            text="numero de permis : ",
+                                            text="num permis de conduite : ",
                                             bg_color="black")
-        self.label_Email.place(x=450, y=400)
+        self.label_Email.place(x=450, y=350)
 
         self.EmailEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
-                                             height=50)
-        self.EmailEntry.place(x=600, y=400) 
-        # choisir le voiture
+                                             height=40)
+        self.EmailEntry.place(x=600, y=350) 
+        # choisir la voiture
         self.label_Password = customtkinter.CTkLabel(self, 
                                             text="choisir une voiture: ",
                                             bg_color="black")
-        self.label_Password.place(x=450, y=500)
-        
-        c=conn.db
-        result=c.execute("SELECT id_voiture FROM `voiture`")
-        listvoiture=[]
-        for row in result:
-            listvoiture.append(row)
+        self.label_Password.place(x=450, y=450)
 
+        c=conn.db
+        c.execute("SELECT marque FROM `voiture`")
+        result=c.fetchall()
+        listvoiture=[]
+        if result:
+            listvoiture = [row[0] for row in result]
+        else:
+            print("No results found")
         combobox = customtkinter.CTkComboBox(self,
                                      values=listvoiture,
                                      dropdown_fg_color="black",
                                      text_color="white",
                                      width=200,
-                                     height=50,
+                                     height=40,
                                      corner_radius=10
                                     )
-        combobox.place(x=600, y=500)
+        combobox.place(x=600, y=450)
         combobox.set("voiture disponible ")
+
+        self.label_dateD = customtkinter.CTkLabel(self, 
+                                            text="date debut : ",
+                                            bg_color="black")
+        self.label_dateD.place(x=450, y=500)
+
+        self.dateDEntry=customtkinter.CTkEntry(self,
+                                             bg_color="#3D404B",
+                                             fg_color="white",
+                                             text_color="black",
+                                             width=200,
+                                             height=40)
+        self.dateDEntry.place(x=600, y=500) 
+        self.label_dateF = customtkinter.CTkLabel(self, 
+                                            text="date fin : ",
+                                            bg_color="black")
+        self.label_dateF.place(x=450, y=550)
+
+        self.dateFEntry=customtkinter.CTkEntry(self,
+                                             bg_color="#3D404B",
+                                             fg_color="white",
+                                             text_color="black",
+                                             width=150,
+                                             height=40)
+        self.dateFEntry.place(x=600, y=550) 
+        #function 
+        def reserve():
+            nomc=self.nomEntry.get()
+            num=self.prenomEntry.get()
+            cin=self.usernameEntry.get()
+            permis=self.EmailEntry.get()
+            voiture=self.combobox.get()
+            dated=self.dateDEntry.get()
+            datef=self.dateFEntry.get()
+            res=reservation.Reservation(nomc,num,cin,permis,voiture,dated,datef)
+            cli=client.Client()
+            cli.reserver_voiture(res)
+        
 
         # button
         self.signButton = customtkinter.CTkButton(  self, 
@@ -127,5 +172,6 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 width=256, 
                                                 height=45,
                                                 font=("yu gothic ui bold", 16 * -1),
-                                                cursor='hand2')
-        self.signButton.place(x=380, y=600)
+                                                cursor='hand2',
+                                                command=lambda:reserve())
+        self.signButton.place(x=380, y=700)

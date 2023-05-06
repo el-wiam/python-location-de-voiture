@@ -1,9 +1,13 @@
-import sys 
-sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import adminModel
-import client
 import traceback
+
 import users
+from client import Client
 
 class Admin(users.utilisateur):
     
@@ -93,10 +97,10 @@ class Admin(users.utilisateur):
 # admin=Admin()
 # admin.supprimerVoiture(44)
 
-clt=client.Client("hi","hi",9998888,"hi","hi","hi",29292)
-admin=Admin()
-admin.authentifier("admin","admin")
-admin.ajouterClient(clt)
+#clt=Client("hi","hi",9998888,"hi","hi","hi",29292)
+#admin=Admin()
+#admin.authentifier("admin","admin")
+#admin.ajouterClient(clt)
 # admin=Admin()
 # c=admin.consulterUser()
 # print(c)

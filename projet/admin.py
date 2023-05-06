@@ -1,11 +1,8 @@
-# import adminModel
+import sys 
+sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+from Modeles import adminModel
 import traceback
 import users
-from ..Modeles import adminModel 
-# import voiture
-# import adminModel
-# import users
-# import client
 
 class Admin(users.utilisateur):
     
@@ -83,9 +80,9 @@ class Admin(users.utilisateur):
 
     
 # test dial athentification admin (maykhdmouch les fonctions ila makanch username=admin and password=admin)
-#admin=Admin()
-#admin.authentifier("admin","admin")
-#print(admin.consulterReservation())
+admin=Admin()
+# admin.authentifier("admin","admin")
+print(admin.consulterReservation())
 
 
 #admin.authentifier("admin","admin")

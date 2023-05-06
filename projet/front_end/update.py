@@ -3,7 +3,7 @@ from tkinter import *
 import connexion as conn
 from tkinter import ttk
 from tkinter import BOTH, END, LEFT
-from sqlalchemy.exc import SQLAlchemyError
+# from sqlalchemy.exc import SQLAlchemyError
 
 
 class ToplevelWindow(customtkinter.CTkToplevel):

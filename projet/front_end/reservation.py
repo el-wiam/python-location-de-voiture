@@ -6,15 +6,12 @@ import os
 # Add the parent directory to the system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import connexion as conn
-<<<<<<< HEAD
-import admin
-import client
 from reservation import Reservation
-=======
+
 from admin import *
 from voiture import voiture
 from client import Client
->>>>>>> 2056b15c29eeba862e3ca30480476fd5ed06cec3
+
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -165,7 +162,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             dated=self.dateDEntry.get()
             datef=self.dateFEntry.get()
             res=Reservation(nomc,num,cin,permis,voiture,dated,datef)
-            cli=client.Client()
+            cli=Client()
             cli.reserver_voiture(res)
         
 

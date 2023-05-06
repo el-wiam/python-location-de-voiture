@@ -1,7 +1,15 @@
 import customtkinter 
 from tkinter import *
+<<<<<<< HEAD
+
+import sys 
+sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+
+from Modeles import connexion as conn
+=======
 import tksheet
 import connexion as conn
+>>>>>>> c100c2f15b6a691999b18487afcbf501301f8c33
 import update
 
 

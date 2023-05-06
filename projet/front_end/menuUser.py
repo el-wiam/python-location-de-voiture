@@ -1,7 +1,6 @@
 import customtkinter 
 from tkinter import *
 from tkinter import filedialog
-import connexion as conn
 import search
 import reservation
 import seecars

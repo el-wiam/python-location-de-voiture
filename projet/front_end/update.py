@@ -1,6 +1,9 @@
 import customtkinter 
 from tkinter import *
-import connexion as conn
+import sys 
+sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+
+from Modeles import connexion as conn
 from tkinter import ttk
 from tkinter import BOTH, END, LEFT
 # from sqlalchemy.exc import SQLAlchemyError

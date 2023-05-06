@@ -7,7 +7,7 @@ import users
 
 
 class Client(users.utilisateur):
-    def __init__(self,nomComplet='',cin='',numTel='',username='',password='',email='',numPermis=''):
+    def __init__(self,nomComplet='',cin='',numTel=0,username='',password='',email='',numPermis=0):
         users.utilisateur.__init__(self,nomComplet,cin,numTel,username,password,email,numPermis)
     
     def reserver_voiture(self,voiture_id, date_debut, date_fin):
@@ -26,7 +26,7 @@ class Client(users.utilisateur):
 
     def modifier_reservation(self,id):
         try:
-            return clientModel.ClientModel.modifierReservation(id)
+            return clientModel.ClientModel.modifier_reservation(id)
         except Exception as e:
             print("Error Type:", type(e).__name__)
             traceback.print_exc()

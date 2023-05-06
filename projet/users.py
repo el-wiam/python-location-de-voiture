@@ -16,7 +16,7 @@ class utilisateur:
     numPermis=0
     authentified= False
 
-    def __init__(self,nomComplet='',cin='',numTel='',username='',password='',email='',numPermis='') :
+    def __init__(self,nomComplet='',cin='',numTel=0,username='',password='',email='',numPermis=0) :
         self.id = next(utilisateur.id)
         self.nomComplet=nomComplet
         self.cin=cin

@@ -3,7 +3,8 @@ import customtkinter
 import top
 import addUser
 import connexion as conn
-
+import menuadmin
+import menuUser
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -98,7 +99,6 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.pwd_Entry.place(x=550,y=290)
         # ================ PASSWORD Name Section ====================
         # ================ Submit button ============================
-        
         self.Login_button = customtkinter.CTkButton(
             self,
             width=230,
@@ -110,13 +110,29 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             text_color="black",
             font=("yu gothic ui Bold", 16 * -1),
             corner_radius=20,
-            command=lambda: top.ToplevelWindow(self).menuUser(),
+            # command=self.authentifier(),
         )
         self.Login_button.place(x=600, y=400)
+        def authentifier():
+            # c=conn.db
+            username=self.email_entry.get()
+            password=self.pwd_Entry.get()
+            # sql1="SELECT username from user"
+            # sql2="SELECT password from user"
+            # res1=c.execute(sql1)
+            # res2=c.execute(sql2)
+            if (username=="admin" and password=="admin" ):
+                self.Login_button.configure(command=menuadmin.ToplevelWindow.menuadmin(self))
+            else :
+                self.Login_button.configure(command=menuUser.ToplevelWindow.menuuser(self))
+        
+        self.Login_button.configure(command=authentifier())
 
-        # def authentifier():
-        #     username=self.email_entry.get()
-        #     password=self.pwd_Entry.get()
+
+
+
+
+            
 
 
 

@@ -84,7 +84,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 transmission=row[4] 
                 prix_location=row[5]
                 disponibilite=row[7]               
-                txt.insert(END,f"MARQUE :{marque} \n - MODEL :{model} \n , TYPE DE CARBURANT : {typecarburant} \n TRANSMISSION : {transmission} \n PRIX DE LOCATION: {prix_location} \n DESPONIBILTE : {disponibilite}")
+                txt.insert(END,f"MARQUE :{marque} \n - MODEL :{model} \n - TYPE DE CARBURANT : {typecarburant} \n - TRANSMISSION : {transmission} \n - PRIX DE LOCATION: {prix_location} \n - DESPONIBILTE : {disponibilite}")
                 txt.yview(END)
             self.modify.focus_set()
         self.buttn.configure(command=search)        

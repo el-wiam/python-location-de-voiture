@@ -29,7 +29,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             text="",
         )
         self.bg_imageLogo.place(x=0, y=0)
-    def seecars(self):
+    def seereservation(self):
         my_conn=conn.db
         my_conn.execute("select * from reservation")
         i=0

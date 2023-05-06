@@ -9,6 +9,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import connexion as conn
 from admin import *
+from client import Client
 import menuadmin
 import menuUser
 
@@ -106,15 +107,18 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         # ================ PASSWORD Name Section ====================
         # ================ Submit button ============================
         a =Admin()
+        c =Client()
         def authentifier():
-            username=self.email_entry.get()
-            password=self.pwd_Entry.get()
-            a.authentifier(username,password)
-            p=a.authentified
-            if p:
+            username = self.email_entry.get()
+            password = self.pwd_Entry.get()
+
+            a.authentifier(username, password)
+            c.authentifier(username, password)
+            if a.authentified:
                 self.Login_button.configure(command=menuadmin.ToplevelWindow(self).menuadmin())
-            else :
+            elif c.connected:
                 self.Login_button.configure(command=menuUser.ToplevelWindow(self).menuuser())
+
 
         self.Login_button = customtkinter.CTkButton(
             self,

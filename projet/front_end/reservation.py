@@ -1,9 +1,14 @@
 import customtkinter 
 from tkinter import *
-import sys 
-sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+import sys
+import os
 
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import connexion as conn
+from admin import *
+from voiture import voiture
+from client import Client
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -18,7 +23,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         position_right = int(screen_width / 2 - window_width / 2)
         self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
         self.config(bg="black")
-        self.title('sign up')
+        self.title('reservation')
 
         self.resizable(False, False)
 
@@ -104,22 +109,26 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         c=conn.db
         result=c.execute("SELECT id_voiture FROM `voiture`")
         listvoiture=[]
-        for row in result:
-            listvoiture.append(row)
+        if result is None:
+            print("No rows found.")
+        else:
+            for row in result:
+                listvoiture.append(row)
 
         combobox = customtkinter.CTkComboBox(self,
-                                     values=listvoiture,
-                                     dropdown_fg_color="black",
-                                     text_color="white",
-                                     width=200,
-                                     height=50,
-                                     corner_radius=10
+                                    values=listvoiture,
+                                    dropdown_fg_color="black",
+                                    text_color="white",
+                                    width=200,
+                                    height=50,
+                                    corner_radius=10
                                     )
         combobox.place(x=600, y=500)
         combobox.set("voiture disponible ")
 
+
         # button
-        self.signButton = customtkinter.CTkButton(  self, 
+        '''self.signButton = customtkinter.CTkButton(  self, 
                                                 fg_color='#FFED00', 
                                                 text='effectuer la reservation', 
                                                 text_color="black",
@@ -128,4 +137,19 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 height=45,
                                                 font=("yu gothic ui bold", 16 * -1),
                                                 cursor='hand2')
-        self.signButton.place(x=380, y=600)
+        self.signButton.place(x=380, y=600)'''
+
+        self.signButton = customtkinter.CTkButton(
+                self,
+                width=230,
+                height=40,
+                text="  ",
+                bg_color="black",
+                cursor="hand2",
+                fg_color="#FFED00",
+                text_color="black",
+                font=("yu gothic ui Bold", 16 * -1),
+                corner_radius=20,
+                
+            )
+        self.signButton.place(x=600, y=400) 

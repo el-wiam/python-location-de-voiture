@@ -13,10 +13,12 @@ class UserModel:
                     print("Admin logged in")
                     return -1
                 else:
-                    print("Username and password are correct")
+                    print(result)
                     return result[0]
             else:
                 print("Incorrect username or password")
+            
+                return -2    
         except Exception as e:
             print("Error during authentication:", e)
     

@@ -1,4 +1,4 @@
-import connexion
+from Classes import connexion
 import traceback
 
 class Modeladmin:

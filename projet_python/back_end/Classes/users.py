@@ -1,5 +1,5 @@
 import itertools
-import userModel
+from ..Modeles import userModel 
 import traceback
 
 class utilisateur:

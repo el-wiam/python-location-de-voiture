@@ -2,6 +2,7 @@ import customtkinter
 import addcar
 import seecars
 import search
+import reservation
 
 from tkinter import *
 class ToplevelWindow(customtkinter.CTkToplevel):
@@ -123,6 +124,57 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             corner_radius=20,
             command=lambda: search.ToplevelWindow(self).recherche()
         )
+        self.see_car.place(x=600, y=400)  
+    def menuUser(self):
+        self.Logiin_backgroundImage = PhotoImage(file="assets\\menuUser.png")
+        self.bg_imageLogiin = customtkinter.CTkLabel(
+            self,
+            image=self.Logiin_backgroundImage,
+            fg_color="black",
+            text=""
+        )
+        self.bg_imageLogiin.place(x=20, y=120)
+        self.Login_button = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" effectuer reservation",
+            bg_color="black",
+            cursor="hand2", 
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: reservation.ToplevelWindow(self).reservation()
+        )
+        self.Login_button.place(x=600, y=200) 
+        self.see_car = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" consulter la liste des voitures ",
+            bg_color="black",
+            cursor="hand2",
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: seecars.ToplevelWindow(self).seecars() )
+        self.see_car.place(x=600, y=300) 
+
+        self.see_car = customtkinter.CTkButton(
+                self,
+                width=230,
+                height=40,
+                text=" rechercher les voitures ",
+                bg_color="black",
+                cursor="hand2",
+                fg_color="#FFED00",
+                text_color="black",
+                font=("yu gothic ui Bold", 16 * -1),
+                corner_radius=20,
+                command=lambda: search.ToplevelWindow(self).recherche()
+            )
         self.see_car.place(x=600, y=400)  
 
     def open_toplevel(self):

@@ -174,7 +174,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             imag=self.imageButton.cget()
             dispo=combobox.get()
             car=voiture.voiture(marque,medel,typec,nbp,trans,prix,dispo,imag)
-            a=admin.Admin()
+            a=Admin()
             a.authentifier("admin","admin")
             a.ajouterVoiture(car)
 

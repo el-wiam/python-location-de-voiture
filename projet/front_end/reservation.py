@@ -144,7 +144,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
-                                             width=200,
+                                             width=150,
                                              height=40)
         self.dateFEntry.place(x=600, y=550) 
         #function 

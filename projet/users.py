@@ -52,3 +52,8 @@ class utilisateur:
 
     def rechercher_voiture(self, critere):
         return userModel.UserModel.rechercherVoiture(self, critere)
+    
+    def update_password(self,pwd):
+            return userModel.UserModel.updatePwd(pwd) 
+          
+# us=utilisateur().update_password(2,"safaa")

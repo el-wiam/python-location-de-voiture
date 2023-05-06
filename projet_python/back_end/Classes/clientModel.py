@@ -36,3 +36,14 @@ class ClientModel:
         except Exception as e:
             print("Error Type:", type(e).__name__)
             traceback.print_exc()
+
+    def consulter_reservation(client_id):
+        try:
+            sql = "SELECT * FROM reservation WHERE id_c = %s"
+            values = (client_id,)
+            connexion.db.execute(sql, values)
+            result = connexion.db.fetchall()
+            return result
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()

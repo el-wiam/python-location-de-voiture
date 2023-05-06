@@ -25,7 +25,18 @@ class Client(users.utilisateur):
         except Exception as e:
             print("Error Type:", type(e).__name__)
             traceback.print_exc()
+
+    def consulter_reservation(self):
+        try:
+            return clientModel.ClientModel.consulter_reservation(self.id)
+        except Exception as e:
+            print("Error Type:", type(e).__name__)
+            traceback.print_exc()
+
+
+
 #c=Client()
 #c.authentifier("migo","safaabatrahi123")
-# c.annuler_reservation(3)
-#c.reserver_voiture(66,"2025-09-16","2030-09-18")
+#c.annuler_reservation(3)
+#voiture = c.rechercher_voiture("mercedes")
+#print(voiture)

@@ -11,6 +11,7 @@ class utilisateur:
     password=''
     email=''
     numPermis=0
+    authentified= False
 
     def __init__(self,nomComplet='',cin='',numTel='',username='',password='',email='',numPermis='') :
         self.id = next(utilisateur.id)
@@ -25,7 +26,12 @@ class utilisateur:
     def authentifier(self,username, password):
         try:
             self.id = userModel.UserModel.authentifierUser(username,password)
-            return id
+            if self.id == -1:
+                self.authentified = True
+                return id
+            else:
+                self.authentified = False
+                return id
         except Exception as e:
                 print("Error Type:", type(e).__name__)
                 traceback.print_exc()
@@ -38,4 +44,5 @@ class utilisateur:
                 traceback.print_exc()
 
 
-
+    def rechercher_voiture(self, critere):
+        return userModel.UserModel.rechercherVoiture(self, critere)

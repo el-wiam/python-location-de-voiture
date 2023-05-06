@@ -22,25 +22,28 @@ class Client(users.utilisateur):
                 traceback.print_exc()
 
     def annuler_reservation(self,id):
-        try:
-            return clientModel.ClientModel.annulerReservation(id)
-        except Exception as e:
-            print("Error Type:", type(e).__name__)
-            traceback.print_exc()
+        if not self.connected:
+            try:
+                return clientModel.ClientModel.annulerReservation(id)
+            except Exception as e:
+                print("Error Type:", type(e).__name__)
+                traceback.print_exc()
 
     def modifier_reservation(self,id):
-        try:
-            return clientModel.ClientModel.modifier_reservation(id)
-        except Exception as e:
-            print("Error Type:", type(e).__name__)
-            traceback.print_exc()
+        if not self.connected:
+            try:
+                return clientModel.ClientModel.modifier_reservation(id)
+            except Exception as e:
+                print("Error Type:", type(e).__name__)
+                traceback.print_exc()
 
     def consulter_reservation(self):
-        try:
-            return clientModel.ClientModel.consulter_reservation(self.id)
-        except Exception as e:
-            print("Error Type:", type(e).__name__)
-            traceback.print_exc()
+        if not self.connected:
+            try:
+                return clientModel.ClientModel.consulter_reservation(self.id)
+            except Exception as e:
+                print("Error Type:", type(e).__name__)
+                traceback.print_exc()
 
 
 

@@ -28,7 +28,7 @@ class ClientModel:
             traceback.print_exc()
         
 
-    def modifier_reservation(self, new_date_debut, new_date_fin):
+    def modifier_reservation(self, new_date_debut, new_date_fin,username,):
         try:
             sql = "UPDATE reservation SET date_debut = %s, date_fin = %s WHERE id_v = %s AND id_c = %s"
             values = (new_date_debut, new_date_fin, self.voiture_id, self.client_id)

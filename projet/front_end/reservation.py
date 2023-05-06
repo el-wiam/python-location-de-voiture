@@ -1,12 +1,20 @@
 import customtkinter 
 from tkinter import *
-import sys 
-sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+import sys
+import os
 
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import connexion as conn
+<<<<<<< HEAD
 import admin
 import client
 from reservation import Reservation
+=======
+from admin import *
+from voiture import voiture
+from client import Client
+>>>>>>> 2056b15c29eeba862e3ca30480476fd5ed06cec3
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -21,7 +29,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         position_right = int(screen_width / 2 - window_width / 2)
         self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
         self.config(bg="black")
-        self.title('sign up')
+        self.title('reservation')
 
         self.resizable(False, False)
 

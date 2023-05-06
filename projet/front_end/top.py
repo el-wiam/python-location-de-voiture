@@ -1,16 +1,13 @@
 import customtkinter 
-import addcar
-import seecars
-import search
-import reservation
-import menuadmin
-import menuUser
-import toplevel
-import sys 
-sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
-
-from Modeles import connexion as conn
 from tkinter import *
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import addcar
+import users
+from Modeles import connexion
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -57,8 +54,21 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              height=50)
         self.PasswordEntry.place(x=400, y=300 ) 
 
+        def forget():
+            user = self.username.get()
+            pwd = self.PasswordEntry.get()
+            sql = "SELECT * FROM user"
+            connexion.db.execute(sql)
+            clients = connexion.db.fetchall()
+            for client in clients:
+                if user==client[4]:
+                    us = users.utilisateur()
+                    us.update_password(pwd)
+                else:
+                    print("Identifiants invalides")
+
         # button
-        self.update_pass = customtkinter.CTkButton(  self, 
+        self.update_pass = customtkinter.CTkButton(self, 
                                                 fg_color='#FFED00', 
                                                 text='Update Password', 
                                                 text_color="black",
@@ -66,8 +76,11 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 width=256, 
                                                 height=45,
                                                 font=("yu gothic ui bold", 16 * -1),
-                                                cursor='hand2')
+                                                cursor='hand2',
+                                                command=lambda:forget())
         self.update_pass.place(x=380, y=410)
+
+
 
     def open_toplevel(self):
         if self.toplevel_window is None or not self.toplevel_window.winfo_exists():

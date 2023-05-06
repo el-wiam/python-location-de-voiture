@@ -4,7 +4,11 @@ import top
 import toplevel
 import addUser
 import seecars
+import sys
+import os
 
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 class App(customtkinter.CTk):
     def __init__(self, *args, **kwargs):

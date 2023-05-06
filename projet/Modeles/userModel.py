@@ -1,6 +1,7 @@
 import sys 
 sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
 from Modeles import connexion
+import users
 class UserModel:
     def authentifierUser(username,password):
         try:
@@ -13,10 +14,12 @@ class UserModel:
                     print("Admin logged in")
                     return -1
                 else:
-                    print("Username and password are correct")
+                    print(result)
                     return result[0]
             else:
                 print("Incorrect username or password")
+            
+                return -2    
         except Exception as e:
             print("Error during authentication:", e)
     
@@ -42,3 +45,13 @@ class UserModel:
             print("Error Type:", type(e).__name__)
             return []
             
+
+    def updatePwd(password):
+        try :
+            sql="UPDATE user set password=(%s) WHERE id = (%s)"
+            values=(password,users.utilisateur.id)
+            connexion.db.execute(sql,values)
+            connexion.conn.commit()
+            print("le mot de passe bien change")
+        except Exception as e:
+            print("Error Type:", type(e).__name__)

@@ -18,6 +18,7 @@ class utilisateur:
     email=''
     numPermis=0
     authentified= False
+    connected=False
 
     def __init__(self,nomComplet='',cin='',numTel=0,username='',password='',email='',numPermis=0) :
         self.id = next(utilisateur.id)
@@ -35,9 +36,14 @@ class utilisateur:
             if self.id == -1:
                 self.authentified = True
                 return id
-            else:
+            elif self.id == -2:
                 self.authentified = False
+                self.connected = False
                 return id
+            else:
+                self.connected = True
+                return id
+                
         except Exception as e:
                 print("Error Type:", type(e).__name__)
                 traceback.print_exc()
@@ -52,3 +58,8 @@ class utilisateur:
 
     def rechercher_voiture(self, critere):
         return userModel.UserModel.rechercherVoiture(self, critere)
+    
+    def update_password(self,pwd):
+            return userModel.UserModel.updatePwd(pwd) 
+          
+# us=utilisateur().update_password(2,"safaa")

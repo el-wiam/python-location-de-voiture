@@ -160,8 +160,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             num_permis=self.nbPermisEntry.get()
 
             if password==passwordConfirm :
-                us=client.Client(nom_complet,cin,num_tel,username,password,email,num_permis)
-                adm=admin.Admin()
+                us=Client(nom_complet,cin,num_tel,username,password,email,num_permis)
+                adm=Admin()
                 adm.authentifier("admin","admin")
                 adm.ajouterClient(us)
                 self.signButton.configure(command=toplevel.ToplevelWindow(self).login())

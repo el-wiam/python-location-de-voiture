@@ -35,22 +35,23 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         i=0
         for res in my_conn:
             for j in range(len(res)):
-                e= Entry(self, width=10, fg='blue')
+                e= customtkinter.CTkEntry(self, width=10, fg='blue')
                 e.grid(row=i, column=j) 
                 e.insert(END,res[j])
-                W=Label(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                i=i+1
+                W=customtkinter.CTkLabel(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=0)
-                W=Label(self,width=10,text='nom complet',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='nom complet',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=1)
-                W=Label(self,width=10,text='CIN',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='CIN',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=3)
-                W=Label(self,width=10,text='numero de telephone',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='numero de telephone',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=2)
-                W=Label(self,width=10,text='numero de permis de conduite',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='numero de permis de conduite',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=4)
-                W=Label(self,width=10,text='voiture',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='voiture',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=6)            
-            i=i+1
+                
             self.Login_button = customtkinter.CTkButton(
             self,
             width=230,

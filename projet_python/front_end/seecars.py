@@ -35,25 +35,34 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         i=0
         for car in my_conn:
             for j in range(len(car)):
-                e= Entry(self, width=10, fg='blue')
+                e= customtkinter.CTkEntry(self, width=10, fg='blue')
                 e.grid(row=i, column=j) 
                 e.insert(END,car[j])
-                W=Label(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=0)
+<<<<<<< HEAD
+                W=customtkinter.CTkLabel(self,width=10,text='marque',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+=======
                 W=Label(self,width=10,text='marque',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+>>>>>>> bfa34a174c0cc5511660a2528074a28361a76ad0
                 W.grid(row=0,column=1)
-                W=Label(self,width=10,text='type de carburant',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='type de carburant',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=2)
-                W=Label(self,width=10,text='nombre de place',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='nombre de place',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=3)
-                W=Label(self,width=10,text='transmission',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='transmission',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=4)
-                W=Label(self,width=10,text='prix de location',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='prix de location',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=5)
-                W=Label(self,width=10,text='disponibilité',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=10,text='disponibilité',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=6)
+<<<<<<< HEAD
+                W=customtkinter.CTkLabel(self,width=10,text='image',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=7)
+=======
                 W=Label(self,width=10,text='image',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=7) 
+>>>>>>> bfa34a174c0cc5511660a2528074a28361a76ad0
             i=i+1
 
             

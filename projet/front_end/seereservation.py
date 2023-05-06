@@ -37,8 +37,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             for j in range(len(res)):
                 e= customtkinter.CTkEntry(self, width=10, fg='blue')
                 e.grid(row=i, column=j) 
-                e.insert(END,res[j])
-                i=i+1
+                e.insert(END,res[j])  
                 W=customtkinter.CTkLabel(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=0)
                 W=customtkinter.CTkLabel(self,width=10,text='nom complet',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
@@ -51,7 +50,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 W.grid(row=0,column=4)
                 W=customtkinter.CTkLabel(self,width=10,text='voiture',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=6)            
-                
+            i=i+1   
             self.Login_button = customtkinter.CTkButton(
             self,
             width=230,

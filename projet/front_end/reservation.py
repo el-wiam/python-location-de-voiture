@@ -11,6 +11,7 @@ from client import Client
 from reservationb import Reservation
 
 
+
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -156,11 +157,13 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             num=self.prenomEntry.get()
             cin=self.usernameEntry.get()
             permis=self.EmailEntry.get()
-            voiture=combobox.get()
+            voiture=self.combobox.get()
             dated=self.dateDEntry.get()
             datef=self.dateFEntry.get()
+
             cli=Client()
             cli.reserver_voiture(nomc,num,cin,permis,voiture,dated,datef)
+
         
 
         # button

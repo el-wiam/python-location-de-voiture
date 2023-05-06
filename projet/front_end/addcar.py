@@ -1,8 +1,15 @@
 import customtkinter 
 from tkinter import *
 from tkinter import filedialog
-import sys 
-sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+import sys
+sys.path.append("C:\Users\21262\Documents\3rd year  IT engineering\2eme semestre\python\projet python")
+
+# Add the parent directory to the system path
+
+from Modeles import connexion as conn
+import admin
+import voiture 
+
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -31,87 +38,91 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.bg_imageLogo.place(x=0, y=0)
     def addcar(self):
         # Marque
-        self.label_nom = customtkinter.CTkLabel(self, 
+        self.label_marque = customtkinter.CTkLabel(self, 
                                             text="MARQUE : ",
                                             bg_color="black")
-        self.label_nom.place(x=70, y=180)
+        self.label_marque.place(x=70, y=180)
 
-        self.nomEntry=customtkinter.CTkEntry(self,
+        self.marqueEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.nomEntry.place(x=200, y=180) 
+        self.marqueEntry.place(x=200, y=180) 
+        
 
         # modele 
-        self.label_prenom = customtkinter.CTkLabel(self, 
+        self.label_modele = customtkinter.CTkLabel(self, 
                                             text="modele : ",
                                             bg_color="black")
-        self.label_prenom.place(x=450, y=180)
+        self.label_modele.place(x=450, y=180)
 
-        self.prenomEntry=customtkinter.CTkEntry(self,
+        self.modeleEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.prenomEntry.place(x=600, y=180) 
+        self.modeleEntry.place(x=600, y=180) 
+        
         # type_carburant
-        self.label_username = customtkinter.CTkLabel(self, 
+        self.label_typec = customtkinter.CTkLabel(self, 
                                             text="type de carburant : ",
                                             bg_color="black")
-        self.label_username.place(x=70, y=250)
+        self.label_typec.place(x=70, y=250)
 
-        self.usernameEntry=customtkinter.CTkEntry(self,
+        self.typecEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.usernameEntry.place(x=200, y=250) 
+        self.typecEntry.place(x=200, y=250) 
+        
         # nombre de places
-        self.label_CIN = customtkinter.CTkLabel(self, 
+        self.label_nbp = customtkinter.CTkLabel(self, 
                                             text="nombre de places : ",
                                             bg_color="black")
-        self.label_CIN.place(x=450, y=250)
+        self.label_nbp.place(x=450, y=250)
 
-        self.CINEntry=customtkinter.CTkEntry(self,
+        self.nbpEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.CINEntry.place(x=600, y=250) 
-
+        self.nbpEntry.place(x=600, y=250) 
+        
         # transmission
-        self.label_Tele = customtkinter.CTkLabel(self, 
+        self.label_trans = customtkinter.CTkLabel(self, 
                                             text="transmission : ",
                                             bg_color="black")
-        self.label_Tele.place(x=70, y=320)
+        self.label_trans.place(x=70, y=320)
 
-        self.TeleEntry=customtkinter.CTkEntry(self,
+        self.transEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.TeleEntry.place(x=200, y=320) 
+        self.transEntry.place(x=200, y=320) 
+        
 
         # prix de location
-        self.label_Email = customtkinter.CTkLabel(self, 
+        self.label_prix = customtkinter.CTkLabel(self, 
                                             text="prix de location : ",
                                             bg_color="black")
-        self.label_Email.place(x=450, y=320)
+        self.label_prix.place(x=450, y=320)
 
-        self.EmailEntry=customtkinter.CTkEntry(self,
+        self.prixEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.EmailEntry.place(x=600, y=320) 
-
+        self.prixEntry.place(x=600, y=320) 
+        
         # disponibilité
         self.label_Password = customtkinter.CTkLabel(self, 
                                             text="disponibilité : ",
@@ -127,17 +138,18 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                     )
         combobox.place(x=200, y=400)
         combobox.set("choisir disponibilité")
-    
+        
 
         # add image
-        self.label_ConfirmPassword = customtkinter.CTkLabel(self, 
+        self.label_image = customtkinter.CTkLabel(self, 
                                             text="Image : ",
                                             bg_color="black")
-        self.label_ConfirmPassword.place(x=450, y=400)
+        self.label_image.place(x=450, y=400)
     
         def uploadImg():
-            img= filedialog.askopenfilename(initialdir =  "/", title = "Select an Image", filetype = (("jpeg files","*.jpg"),("PNG  files","*.png")))
-            
+            imgfile= filedialog.askopenfilename(initialdir =  "/", title = "Select an Image", filetype = (("jpeg files","*.jpg"),("PNG  files","*.png")))
+            img=PhotoImage(file=imgfile)
+            return img
         self.imageButton = customtkinter.CTkButton(  self, 
                                                 fg_color='white', 
                                                 text='ajouter une image', 
@@ -149,9 +161,26 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 cursor='hand2',
                                                 command= uploadImg())
         self.imageButton.place(x=600, y=400)
-
+        
+        
         # button
-        self.signButton = customtkinter.CTkButton(  self, 
+        def addC(self):
+            marque=self.marqueEntry.get()
+            medel=self.modeleEntry.get()
+            nbp=self.nbpEntry.get()
+            typec=self.typecEntry.get()
+            trans=self.transEntry.get()
+            prix=self.prixEntry.get()
+            imag=self.imageButton.cget()
+            dispo=combobox.get()
+            car=voiture.voiture(marque,medel,typec,nbp,trans,prix,dispo,imag)
+            a=admin.Admin()
+            a.authentifier("admin","admin")
+            a.ajouterVoiture(car)
+
+
+
+        self.signButton = customtkinter.CTkButton(self, 
                                                 fg_color='#FFED00', 
                                                 text='AJOUTER', 
                                                 text_color="black",
@@ -159,7 +188,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 width=256, 
                                                 height=45,
                                                 font=("yu gothic ui bold", 16 * -1),
-                                                cursor='hand2')
+                                                cursor='hand2',
+                                                command=lambda: addC())
         self.signButton.place(x=380, y=500)
         
 

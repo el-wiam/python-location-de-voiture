@@ -98,6 +98,20 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.pwd_Entry.place(x=550,y=290)
         # ================ PASSWORD Name Section ====================
         # ================ Submit button ============================
+        self.Login_button = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text="login",
+            bg_color="black",
+            cursor="hand2",
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            # command=self.authentifier(),
+        )
+        self.Login_button.place(x=600, y=400)
         def authentifier():
             c=conn.db
             username=self.email_entry.get()
@@ -110,20 +124,9 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 self.Login_button.configure(command=top.ToplevelWindow.menuadmin())
             else :
                 self.Login_button.configure(command=top.ToplevelWindow.menuUser())
-        self.Login_button = customtkinter.CTkButton(
-            self,
-            width=230,
-            height=40,
-            text="login",
-            bg_color="black",
-            cursor="hand2",
-            fg_color="#FFED00",
-            text_color="black",
-            font=("yu gothic ui Bold", 16 * -1),
-            corner_radius=20,
-            command=lambda:self.authentifier(),
-        )
-        self.Login_button.place(x=600, y=400)
+        
+        self.Login_button.configure(command=authentifier())
+
 
 
 

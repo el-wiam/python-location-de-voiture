@@ -10,7 +10,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # self.geometry("400x300")
-        window_width = 1200
+        window_width = 1100
         window_height = 600
         bg_color="black",
         screen_width = self.winfo_screenwidth()
@@ -30,7 +30,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             fg_color="black",
             text="",
         )
-        self.bg_imageLogo.place(x=1200, y=0)
+        self.bg_imageLogo.place(x=0, y=450)
     def seecars(self):
         my_conn=conn.db
         my_conn.execute("select * from voiture")

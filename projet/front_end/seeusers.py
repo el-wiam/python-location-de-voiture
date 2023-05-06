@@ -29,7 +29,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             fg_color="black",
             text="",
         )
-        self.bg_imageLogo.place(x=800, y=0)
+        self.bg_imageLogo.place(x=0, y=450)
     def seeusers(self):
         my_conn=conn.db
         my_conn.execute("select * from user")

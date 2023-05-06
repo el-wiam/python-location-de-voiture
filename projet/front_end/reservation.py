@@ -11,6 +11,7 @@ from client import Client
 from reservationb import Reservation
 
 
+
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -65,7 +66,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.label_prenom = customtkinter.CTkLabel(self, 
                                             text="Numero de telephone : ",
                                             bg_color="black")
-        self.label_prenom.place(x=450, y=150)
+        self.label_prenom.place(x=450, y=140)
 
         self.prenomEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
@@ -73,12 +74,12 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              text_color="black",
                                              width=200,
                                              height=40)
-        self.prenomEntry.place(x=600, y=150) 
+        self.prenomEntry.place(x=600, y=140) 
         # cin
         self.label_username = customtkinter.CTkLabel(self, 
                                             text="CIN  : ",
                                             bg_color="black")
-        self.label_username.place(x=450, y=250)
+        self.label_username.place(x=450, y=200)
 
         self.usernameEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
@@ -86,13 +87,13 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              text_color="black",
                                              width=200,
                                              height=40)
-        self.usernameEntry.place(x=600, y=250) 
+        self.usernameEntry.place(x=600, y=200) 
 
         # permis
         self.label_Email = customtkinter.CTkLabel(self, 
                                             text="num permis de conduite : ",
                                             bg_color="black")
-        self.label_Email.place(x=450, y=350)
+        self.label_Email.place(x=450, y=260)
 
         self.EmailEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
@@ -100,12 +101,12 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              text_color="black",
                                              width=200,
                                              height=40)
-        self.EmailEntry.place(x=600, y=350) 
+        self.EmailEntry.place(x=600, y=260) 
         # choisir la voiture
         self.label_Password = customtkinter.CTkLabel(self, 
                                             text="choisir une voiture: ",
                                             bg_color="black")
-        self.label_Password.place(x=450, y=450)
+        self.label_Password.place(x=450, y=320)
 
         c=conn.db
         c.execute("SELECT marque FROM `voiture`")
@@ -123,13 +124,13 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                      height=40,
                                      corner_radius=10
                                     )
-        combobox.place(x=600, y=450)
+        combobox.place(x=600, y=320)
         combobox.set("voiture disponible ")
 
         self.label_dateD = customtkinter.CTkLabel(self, 
                                             text="date debut : ",
                                             bg_color="black")
-        self.label_dateD.place(x=450, y=500)
+        self.label_dateD.place(x=450, y=380)
 
         self.dateDEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
@@ -137,11 +138,11 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              text_color="black",
                                              width=200,
                                              height=40)
-        self.dateDEntry.place(x=600, y=500) 
+        self.dateDEntry.place(x=600, y=380) 
         self.label_dateF = customtkinter.CTkLabel(self, 
                                             text="date fin : ",
                                             bg_color="black")
-        self.label_dateF.place(x=450, y=550)
+        self.label_dateF.place(x=450, y=440)
 
         self.dateFEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
@@ -149,18 +150,20 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              text_color="black",
                                              width=150,
                                              height=40)
-        self.dateFEntry.place(x=600, y=550) 
+        self.dateFEntry.place(x=600, y=440) 
         #function 
         def reserve():
             nomc=self.nomEntry.get()
             num=self.prenomEntry.get()
             cin=self.usernameEntry.get()
             permis=self.EmailEntry.get()
-            voiture=combobox.get()
+            voiture=self.combobox.get()
             dated=self.dateDEntry.get()
             datef=self.dateFEntry.get()
+
             cli=Client()
             cli.reserver_voiture(nomc,num,cin,permis,voiture,dated,datef)
+
         
 
         # button
@@ -174,4 +177,4 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 font=("yu gothic ui bold", 16 * -1),
                                                 cursor='hand2',
                                                 command=lambda:reserve())
-        self.signButton.place(x=380, y=700)
+        self.signButton.place(x=380, y=600)

@@ -1,5 +1,13 @@
+
+import sys 
+sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+
+# from projet import users
+import client
+import admin
 import customtkinter 
 from tkinter import *
+import toplevel
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -42,50 +50,10 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.nomEntry.place(x=200, y=180) 
 
         # modele 
-        self.label_prenom = customtkinter.CTkLabel(self, 
+        self.label_Tele= customtkinter.CTkLabel(self, 
                                             text="Numero de telephone : ",
                                             bg_color="black")
-        self.label_prenom.place(x=450, y=180)
-
-        self.prenomEntry=customtkinter.CTkEntry(self,
-                                             bg_color="#3D404B",
-                                             fg_color="white",
-                                             text_color="black",
-                                             width=200,
-                                             height=50)
-        self.prenomEntry.place(x=600, y=180) 
-        # type_carburant
-        self.label_username = customtkinter.CTkLabel(self, 
-                                            text="CIN  : ",
-                                            bg_color="black")
-        self.label_username.place(x=70, y=250)
-
-        self.usernameEntry=customtkinter.CTkEntry(self,
-                                             bg_color="#3D404B",
-                                             fg_color="white",
-                                             text_color="black",
-                                             width=200,
-                                             height=50)
-        self.usernameEntry.place(x=200, y=250) 
-        # nombre de places
-        self.label_CIN = customtkinter.CTkLabel(self, 
-                                            text="Email : ",
-                                            bg_color="black")
-        self.label_CIN.place(x=450, y=250)
-
-        self.CINEntry=customtkinter.CTkEntry(self,
-                                             bg_color="#3D404B",
-                                             fg_color="white",
-                                             text_color="black",
-                                             width=200,
-                                             height=50)
-        self.CINEntry.place(x=600, y=250) 
-
-        # transmission
-        self.label_Tele = customtkinter.CTkLabel(self, 
-                                            text="usename : ",
-                                            bg_color="black")
-        self.label_Tele.place(x=70, y=320)
+        self.label_Tele.place(x=450, y=180)
 
         self.TeleEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
@@ -93,13 +61,25 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.TeleEntry.place(x=200, y=320) 
-
-        # prix de location
-        self.label_Email = customtkinter.CTkLabel(self, 
-                                            text="numero de permis : ",
+        self.TeleEntry.place(x=600, y=180) 
+        # type_carburant
+        self.label_CIN = customtkinter.CTkLabel(self, 
+                                            text="CIN  : ",
                                             bg_color="black")
-        self.label_Email.place(x=450, y=320)
+        self.label_CIN.place(x=70, y=250)
+
+        self.CINEntry=customtkinter.CTkEntry(self,
+                                             bg_color="#3D404B",
+                                             fg_color="white",
+                                             text_color="black",
+                                             width=200,
+                                             height=50)
+        self.CINEntry.place(x=200, y=250) 
+        # nombre de places
+        self.label_Email = customtkinter.CTkLabel(self, 
+                                            text="Email : ",
+                                            bg_color="black")
+        self.label_Email.place(x=450, y=250)
 
         self.EmailEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
@@ -107,7 +87,35 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.EmailEntry.place(x=600, y=320) 
+        self.EmailEntry.place(x=600, y=250) 
+
+        # transmission
+        self.label_username = customtkinter.CTkLabel(self, 
+                                            text="usename : ",
+                                            bg_color="black")
+        self.label_username.place(x=70, y=320)
+
+        self.usernameEntry=customtkinter.CTkEntry(self,
+                                             bg_color="#3D404B",
+                                             fg_color="white",
+                                             text_color="black",
+                                             width=200,
+                                             height=50)
+        self.usernameEntry.place(x=200, y=320) 
+
+        # prix de location
+        self.label_nbPermis = customtkinter.CTkLabel(self, 
+                                            text="numero de permis : ",
+                                            bg_color="black")
+        self.label_nbPermis.place(x=450, y=320)
+
+        self.nbPermisEntry=customtkinter.CTkEntry(self,
+                                             bg_color="#3D404B",
+                                             fg_color="white",
+                                             text_color="black",
+                                             width=200,
+                                             height=50)
+        self.nbPermisEntry.place(x=600, y=320) 
 
      #Password
         self.label_Password = customtkinter.CTkLabel(self, 
@@ -115,26 +123,48 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                             bg_color="black")
         self.label_Password.place(x=70, y=400)
 
-        self.EmailEntry=customtkinter.CTkEntry(self,
+        self.PasswordEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.EmailEntry.place(x=200, y=400) 
+        self.PasswordEntry.place(x=200, y=400) 
 
         # Confirm Password
         self.label_ConfirmPassword = customtkinter.CTkLabel(self, 
                                             text="ConfirmPassword : ",
                                             bg_color="black")
         self.label_ConfirmPassword.place(x=450, y=400)
-        self.EmailEntry=customtkinter.CTkEntry(self,
+        self.ConfirmPasswordEntry=customtkinter.CTkEntry(self,
                                              bg_color="#3D404B",
                                              fg_color="white",
                                              text_color="black",
                                              width=200,
                                              height=50)
-        self.EmailEntry.place(x=600, y=400)
+        self.ConfirmPasswordEntry.place(x=600, y=400)
+
+
+        def add():
+            nom_complet=self.nomEntry.get()
+            cin=self.CINEntry.get()
+            num_tel=self.TeleEntry.get()
+            username=self.usernameEntry.get()
+
+            password=self.PasswordEntry.get()
+            passwordConfirm=self.ConfirmPasswordEntry.get()
+
+            email=self.EmailEntry.get()
+            num_permis=self.nbPermisEntry.get()
+
+            if password==passwordConfirm :
+                us=client.Client(nom_complet,cin,num_tel,username,password,email,num_permis)
+                adm=admin.Admin()
+                adm.authentifier("admin","admin")
+                adm.ajouterClient(us)
+                self.signButton.configure(command=toplevel.ToplevelWindow(self).login())
+            else :
+                print("password non identique avec password confirm")
 
         # button
         self.signButton = customtkinter.CTkButton(  self, 
@@ -145,6 +175,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 width=256, 
                                                 height=45,
                                                 font=("yu gothic ui bold", 16 * -1),
-                                                cursor='hand2')
+                                                cursor='hand2',
+                                                command=lambda:add())
         self.signButton.place(x=380, y=500)
+        
         

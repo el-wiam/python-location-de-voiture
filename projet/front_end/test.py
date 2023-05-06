@@ -6,8 +6,10 @@ import addUser
 import seecars
 import seereservation
 import seeusers
-import connexion as conn
+import sys 
+sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
 
+from Modeles import connexion as conn
 
 class menu(customtkinter.CTk):
     def __init__(self, *args, **kwargs):

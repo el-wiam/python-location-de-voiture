@@ -2,13 +2,13 @@ import customtkinter
 from tkinter import *
 from tkinter import filedialog
 import sys
-sys.path.append("C:\Users\21262\Documents\3rd year  IT engineering\2eme semestre\python\projet python")
+import os
 
 # Add the parent directory to the system path
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import connexion as conn
-import admin
-import voiture 
+from admin import *
+from voiture import voiture
 
 
 class ToplevelWindow(customtkinter.CTkToplevel):

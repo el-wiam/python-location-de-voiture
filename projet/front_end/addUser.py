@@ -1,10 +1,12 @@
 
-import sys 
-sys.path.append("C:\Users\21262\Documents\3rd year  IT engineering\2eme semestre\python\projet python")
+import sys
+import os
 
-# from projet import users
-import client
-import admin
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from Modeles import connexion as conn
+from admin import *
+from client import Client
 import customtkinter 
 from tkinter import *
 import toplevel

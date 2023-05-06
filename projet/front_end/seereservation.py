@@ -1,15 +1,13 @@
 import customtkinter 
 from tkinter import *
-<<<<<<< HEAD
 
-import sys 
-sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+import sys
+import os
 
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import connexion as conn
-=======
-import tksheet
-import connexion as conn
->>>>>>> c100c2f15b6a691999b18487afcbf501301f8c33
+from admin import *
 import update
 
 

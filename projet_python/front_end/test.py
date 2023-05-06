@@ -1,11 +1,11 @@
 from tkinter import *
 import customtkinter
 from tkinter import filedialog
-import toplevel
+import addcar
 import addUser
 import seecars
-import reservation
-import top
+import seereservation
+import seeusers
 import connexion as conn
 
 
@@ -30,60 +30,104 @@ class menu(customtkinter.CTk):
         )
         self.bg_imageLogo.place(x=0, y=0)
 
-        self.Logiin_backgroundImage = PhotoImage(file="assets\\search.png")
+        self.adminmenu = customtkinter.CTkLabel(self, 
+                                            text="MENU USER  ",
+                                            width=200,
+                                            height=50,
+                                            font=('Arial', 25),
+                                            bg_color="black")
+        self.adminmenu.place(x=400, y=80)
+        self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")
+        self.bg_imageLogo = customtkinter.CTkLabel(
+            self,
+            image=self.Logo_backgroundImage,
+            fg_color="black",
+            text="",
+        )
+        self.bg_imageLogo.place(x=0, y=0)
+
+        self.Logiin_backgroundImage = PhotoImage(file="assets\\carmenu (1).png")
         self.bg_imageLogiin = customtkinter.CTkLabel(
             self,
             image=self.Logiin_backgroundImage,
             fg_color="black",
             text=""
         )
-        self.bg_imageLogiin.place(x=0, y=120)
 
-        self.label_search = customtkinter.CTkLabel(self, 
-                                            text="search: ",
-                                            bg_color="black",
-                                            font=('Times',24))
-        self.label_search.place(x=350, y=50)
-        self.modify=customtkinter.CTkEntry(self,
-                                             bg_color="#3D404B",
-                                             fg_color="white",
-                                             text_color="black",
-                                             width=300,
-                                             height=40)
-        self.modify.place(x=500, y=50)
+        self.bg_imageLogiin.place(x=20, y=120)
+        self.Login_button = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" ajouter voiture",
+            bg_color="black",
+            cursor="hand2", 
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: addcar.ToplevelWindow(self).addcar()
+        )
+        self.Login_button.place(x=600, y=200) 
 
-        txt=customtkinter.CTkTextbox(self,
-                                    width=580,
-                                    height=400) 
-        txt.place(x=400, y=200)
-        txt.focus_set()
-        self.buttn = customtkinter.CTkButton(  self, 
-                                                fg_color='#FFED00', 
-                                                text='find', 
-                                                text_color="black",
-                                                bg_color='black',
-                                                width=106, 
-                                                height=40,
-                                                font=("yu gothic ui bold", 16 * -1),
-                                                cursor='hand2')
-        self.buttn.place(x=820, y=50)
-
-        def recherche():
-            c=conn.db
-            ser = self.modify.get()
-            sql="SELECT * from voiture where 1=1"
-            if ser:
-                sql += " AND marque LIKE '%{}%'".format(ser)
-            else :
-                sql += " AND model LIKE '%{}%'".format(ser)
-            c.execute(sql)
-            rows=c.fetchall()
-            txt.delete(1.0,END)
-            for row in rows:
-                txt.insert(END,"{}\n".format(row))
-                txt.yview(END)
-            self.modify.focus_set()
-        self.buttn.configure(command=recherche)            
+        self.Login_button = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" ajouter client",
+            bg_color="black",
+            cursor="hand2", 
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: addUser.ToplevelWindow(self).addUser()
+        )
+        self.Login_button.place(x=600, y=300) 
+        # ================ see cars button ============================
+        self.see_car = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" consulter la liste des voitures ",
+            bg_color="black",
+            cursor="hand2",
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: seecars.ToplevelWindow(self).seecars()
+        )
+        self.see_car.place(x=600, y=400)   
+        self.see_car = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" consulter les reservations ",
+            bg_color="black",
+            cursor="hand2",
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: seereservation.ToplevelWindow(self).seereservation()
+        )
+        self.see_car.place(x=600, y=500)     
+        self.see_car = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" consulter les clients ",
+            bg_color="black",
+            cursor="hand2",
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: seeusers.ToplevelWindow(self).seeusers()
+        )
+        self.see_car.place(x=600, y=600)    
+                   
 
 
 if __name__ == "__main__":

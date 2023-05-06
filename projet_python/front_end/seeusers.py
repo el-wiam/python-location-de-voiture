@@ -29,7 +29,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             text="",
         )
         self.bg_imageLogo.place(x=0, y=0)
-    def seecars(self):
+    def seeusers(self):
         my_conn=conn.db
         my_conn.execute("select * from user")
         i=0
@@ -39,7 +39,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
 	                borderwidth=2,relief='ridge', anchor="w") 
                 e.grid(row=i, column=j) 
                 e.insert(END,user[j])
-                i=i+1
+               
                 W=customtkinter.CTkLabel(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=0)
                 W=customtkinter.CTkLabel(self,width=10,text='nom complet',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
@@ -54,4 +54,4 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 W.grid(row=0,column=6)
                 W=customtkinter.CTkLabel(self,width=10,text='Numero de permis de conduite',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=7)       
-            
+            i=i+1

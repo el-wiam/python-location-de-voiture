@@ -5,6 +5,7 @@ import connexion as conn
 import addcar
 import addUser
 import seecars
+import seeusers
 import seereservation
 
 
@@ -88,7 +89,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             corner_radius=20,
             command=lambda: addUser.ToplevelWindow(self).addUser()
         )
-        self.Login_button.place(x=600, y=200) 
+        self.Login_button.place(x=600, y=300) 
         # ================ see cars button ============================
         self.see_car = customtkinter.CTkButton(
             self,
@@ -117,5 +118,19 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             corner_radius=20,
             command=lambda: seereservation.ToplevelWindow(self).seereservation()
         )
-        self.see_car.place(x=600, y=400)        
+        self.see_car.place(x=600, y=500)     
+        self.see_car = customtkinter.CTkButton(
+            self,
+            width=230,
+            height=40,
+            text=" consulter les clients ",
+            bg_color="black",
+            cursor="hand2",
+            fg_color="#FFED00",
+            text_color="black",
+            font=("yu gothic ui Bold", 16 * -1),
+            corner_radius=20,
+            command=lambda: seeusers.ToplevelWindow(self).seeusers()
+        )
+        self.see_car.place(x=600, y=600)       
         

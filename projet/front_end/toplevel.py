@@ -99,6 +99,13 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.pwd_Entry.place(x=550,y=290)
         # ================ PASSWORD Name Section ====================
         # ================ Submit button ============================
+        def authentifier():
+            username=self.email_entry.get()
+            password=self.pwd_Entry.get()
+            if (username=="admin" and password=="admin" ):
+                self.Login_button.configure(command=menuadmin.ToplevelWindow(self).menuadmin())
+            else :
+                self.Login_button.configure(command=menuUser.ToplevelWindow(self).menuuser())
         self.Login_button = customtkinter.CTkButton(
             self,
             width=230,
@@ -110,23 +117,23 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             text_color="black",
             font=("yu gothic ui Bold", 16 * -1),
             corner_radius=20,
-            # command=self.authentifier(),
+            command=lambda:authentifier(),
         )
         self.Login_button.place(x=600, y=400)
-        def authentifier():
-            # c=conn.db
-            username=self.email_entry.get()
-            password=self.pwd_Entry.get()
-            # sql1="SELECT username from user"
-            # sql2="SELECT password from user"
-            # res1=c.execute(sql1)
-            # res2=c.execute(sql2)
-            if (username=="admin" and password=="admin" ):
-                self.Login_button.configure(command=menuadmin.ToplevelWindow.menuadmin())
-            else :
-                self.Login_button.configure(command=menuUser.ToplevelWindow.menuuser())
+        # def authentifier():
+        #     # c=conn.db
+        #     username=self.email_entry.get()
+        #     password=self.pwd_Entry.get()
+        #     # sql1="SELECT username from user"
+        #     # sql2="SELECT password from user"
+        #     # res1=c.execute(sql1)
+        #     # res2=c.execute(sql2)
+        #     if (username=="admin" and password=="admin" ):
+        #         self.Login_button.configure(command=menuadmin.ToplevelWindow.menuadmin())
+        #     else :
+        #         self.Login_button.configure(command=menuUser.ToplevelWindow.menuuser())
         
-        self.Login_button.configure(command=authentifier())
+        # self.Login_button.configure(command=authentifier())
 
 
 

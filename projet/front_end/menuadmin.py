@@ -22,7 +22,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         position_right = int(screen_width / 2 - window_width / 2)
         self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
         self.config(bg="black")
-        self.title('sign up')
+        self.title('MENU ADMIN')
 
         self.resizable(False, False)
 
@@ -37,7 +37,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
 
     def menuadmin(self):
         self.adminmenu = customtkinter.CTkLabel(self, 
-                                            text="MENU USER  ",
+                                            text="MENU ADMIN ",
                                             width=200,
                                             height=50,
                                             font=('Arial', 25),

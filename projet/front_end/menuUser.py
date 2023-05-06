@@ -20,7 +20,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         position_right = int(screen_width / 2 - window_width / 2)
         self.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
         self.config(bg="black")
-        self.title('sign up')
+        self.title('MENU USER')
 
         self.resizable(False, False)
         self.Logo_backgroundImage = PhotoImage(file="assets\\2 (1).png")

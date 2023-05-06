@@ -3,7 +3,8 @@ import customtkinter
 import top
 import addUser
 import connexion as conn
-
+import menuadmin
+import menuUser
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -113,7 +114,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         )
         self.Login_button.place(x=600, y=400)
         def authentifier():
-            c=conn.db
+            # c=conn.db
             username=self.email_entry.get()
             password=self.pwd_Entry.get()
             # sql1="SELECT username from user"
@@ -121,9 +122,9 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             # res1=c.execute(sql1)
             # res2=c.execute(sql2)
             if (username=="admin" and password=="admin" ):
-                self.Login_button.configure(command=top.ToplevelWindow.menuadmin())
+                self.Login_button.configure(command=menuadmin.ToplevelWindow.menuadmin(self))
             else :
-                self.Login_button.configure(command=top.ToplevelWindow.menuUser())
+                self.Login_button.configure(command=menuUser.ToplevelWindow.menuuser(self))
         
         self.Login_button.configure(command=authentifier())
 

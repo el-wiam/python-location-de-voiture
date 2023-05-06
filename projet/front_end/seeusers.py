@@ -28,30 +28,35 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             fg_color="black",
             text="",
         )
-        self.bg_imageLogo.place(x=0, y=0)
+        self.bg_imageLogo.place(x=800, y=0)
     def seeusers(self):
         my_conn=conn.db
         my_conn.execute("select * from user")
-        i=0
+        i=1
         for user in my_conn:
             for j in range(len(user)):
-                e = customtkinter.CTkEntry(self,width=10, text=user[j],
-	                borderwidth=2,relief='ridge', anchor="w") 
+                e = customtkinter.CTkEntry(self, text_color='black',width=100, fg_color='white') 
                 e.grid(row=i, column=j) 
                 e.insert(END,user[j])
                
-                W=customtkinter.CTkLabel(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W=customtkinter.CTkLabel(self,width=120,text='id',anchor='w',bg_color='yellow',text_color='black')
                 W.grid(row=0,column=0)
-                W=customtkinter.CTkLabel(self,width=10,text='nom complet',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+
+                W=customtkinter.CTkLabel(self,width=120,text='nom complet',anchor='w',bg_color='yellow',text_color='black')
                 W.grid(row=0,column=1)
-                W=customtkinter.CTkLabel(self,width=10,text='CIN',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+
+                W=customtkinter.CTkLabel(self,width=120,text='CIN',anchor='w',bg_color='yellow',text_color='black')
                 W.grid(row=0,column=2)
-                W=customtkinter.CTkLabel(self,width=10,text='numero de telephone',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+
+                W=customtkinter.CTkLabel(self,width=120,text='numero de telephone',anchor='w',bg_color='yellow',text_color='black')
                 W.grid(row=0,column=3)
-                W=customtkinter.CTkLabel(self,width=10,text='Username',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+
+                W=customtkinter.CTkLabel(self,width=120,text='Username',anchor='w',bg_color='yellow',text_color='black')
                 W.grid(row=0,column=4)
-                W=customtkinter.CTkLabel(self,width=10,text='Email',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+
+                W=customtkinter.CTkLabel(self,width=120,text='Email',anchor='w',bg_color='yellow',text_color='black')
                 W.grid(row=0,column=6)
-                W=customtkinter.CTkLabel(self,width=10,text='Numero de permis de conduite',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+
+                W=customtkinter.CTkLabel(self,width=120,text='Numero de permis de conduite',anchor='w',bg_color='yellow',text_color='black')
                 W.grid(row=0,column=7)       
             i=i+1

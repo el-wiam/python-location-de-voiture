@@ -8,11 +8,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Modeles import connexion as conn
 from admin import *
 from client import Client
-<<<<<<< HEAD
-=======
 from reservationb import Reservation
 
->>>>>>> 2bb3676d485530020030e4b17b3078f0cadbae9d
+
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -162,14 +160,10 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             voiture=self.combobox.get()
             dated=self.dateDEntry.get()
             datef=self.dateFEntry.get()
-<<<<<<< HEAD
-            res=reservation.Reservation(nomc,num,cin,permis,voiture,dated,datef)
-            cli=client.Client()
-            cli.reserver_voiture(res)
-=======
+
             cli=Client()
             cli.reserver_voiture(nomc,num,cin,permis,voiture,dated,datef)
->>>>>>> 2bb3676d485530020030e4b17b3078f0cadbae9d
+
         
 
         # button

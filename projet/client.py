@@ -16,7 +16,7 @@ class Client(users.utilisateur):
     
     def reserver_voiture(self,nomc,num,cin,permis,voiture, date_debut, date_fin):
         try:
-            return clientModel.ClientModel.reserver_voiture(nomc,num,cin,permis,voiture, date_debut, date_fin,self.id)
+            return clientModel.ClientModel.reserver_voiture(nomc,num,cin,permis,voiture, date_debut, date_fin)
         except Exception as e:
                 print("Error Type:", type(e).__name__)
                 traceback.print_exc()

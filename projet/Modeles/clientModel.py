@@ -4,10 +4,10 @@ from Modeles import connexion
 import traceback
 
 class ClientModel:
-    def reserver_voiture(voiture_id, date_debut, date_fin,id):
+    def reserver_voiture(nomc,num,cin,permis,voiture,dated,datef):
         try:
-            sql = "INSERT INTO reservation (date_debut, date_fin,id_v,id_c) VALUES (%s, %s, %s, %s)"
-            values = (date_debut, date_fin, voiture_id,id)
+            sql = "INSERT INTO reservation (nom_complet,num_tel,cin,numero_permis,voiture,datedebut,datefin) VALUES ( %s, %s, %s,%s, %s, %s, %s)"
+            values = (nomc,num,cin,permis,voiture,dated,datef)
             connexion.db.execute(sql, values)
             connexion.conn.commit()
             return "Voiture reserved successfully!"

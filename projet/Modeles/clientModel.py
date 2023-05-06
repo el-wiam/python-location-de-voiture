@@ -1,4 +1,6 @@
-from Classes import connexion
+import sys 
+sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+from Modeles import connexion
 import traceback
 
 class ClientModel:

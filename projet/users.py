@@ -1,5 +1,8 @@
+import sys 
+sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/projet")
+from Modeles import userModel
+
 import itertools
-from ..Modeles import userModel 
 import traceback
 
 class utilisateur:

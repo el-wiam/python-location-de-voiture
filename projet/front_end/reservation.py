@@ -97,9 +97,13 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                             text="choisir une voiture: ",
                                             bg_color="black")
         self.label_Password.place(x=450, y=500)
+        
         c=conn.db
-        c.execute("select id_voiture from voiture")
-        listvoiture=c.fetchall()   
+        result=c.execute("SELECT id_voiture FROM `voiture`")
+        listvoiture=[]
+        for row in result:
+            listvoiture.append(row)
+
         combobox = customtkinter.CTkComboBox(self,
                                      values=listvoiture,
                                      dropdown_fg_color="black",

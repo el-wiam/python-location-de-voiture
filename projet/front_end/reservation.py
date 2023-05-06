@@ -6,7 +6,7 @@ sys.path.append("C:/Users/toshiba/Desktop/pyproject/python-location-de-voiture/p
 from Modeles import connexion as conn
 import admin
 import client
-import reservation
+from reservation import Reservation
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -153,10 +153,10 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             num=self.prenomEntry.get()
             cin=self.usernameEntry.get()
             permis=self.EmailEntry.get()
-            voiture=self.combobox.get()
+            voiture=combobox.get()
             dated=self.dateDEntry.get()
             datef=self.dateFEntry.get()
-            res=reservation.Reservation(nomc,num,cin,permis,voiture,dated,datef)
+            res=Reservation(nomc,num,cin,permis,voiture,dated,datef)
             cli=client.Client()
             cli.reserver_voiture(res)
         

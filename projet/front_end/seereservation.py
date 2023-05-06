@@ -36,7 +36,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             fg_color="black",
             text="",
         )
-        self.bg_imageLogo.place(x=800, y=0)
+        self.bg_imageLogo.place(x=0, y=550)
     def seereservation(self):
         
         my_conn=conn.db
@@ -58,7 +58,11 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 W=customtkinter.CTkLabel(self,width=120,text='permis de conduite',anchor='w',bg_color='yellow',text_color='black',)
                 W.grid(row=0,column=4)
                 W=customtkinter.CTkLabel(self,width=120,text='Voiture',anchor='w',bg_color='yellow',text_color='black',)
-                W.grid(row=0,column=5)          
+                W.grid(row=0,column=5) 
+                W=customtkinter.CTkLabel(self,width=120,text='date de debut',anchor='w',bg_color='yellow',text_color='black',)
+                W.grid(row=0,column=6)
+                W=customtkinter.CTkLabel(self,width=120,text='date fin',anchor='w',bg_color='yellow',text_color='black',)
+                W.grid(row=0,column=7)               
                 
             i=i+1   
 

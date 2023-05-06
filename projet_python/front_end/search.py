@@ -66,7 +66,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                                                 cursor='hand2')
         self.buttn.place(x=820, y=50)
 
-        def recherche():
+        def search():
             c=conn.db
             ser = self.modify.get()
             sql="SELECT * from voiture where 1=1"
@@ -81,4 +81,4 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 txt.insert(END,"{}\n".format(row))
                 txt.yview(END)
             self.modify.focus_set()
-        self.buttn.configure(command=recherche)        
+        self.buttn.configure(command=search)        

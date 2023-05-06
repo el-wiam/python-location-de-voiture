@@ -118,11 +118,11 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             c=conn.db
             username=self.email_entry.get()
             password=self.pwd_Entry.get()
-            sql1="SELECT username from user"
-            sql2="SELECT password from user"
-            res1=c.execute(sql1)
-            res2=c.execute(sql2)
-            if (username==res1 and password==res2 ):
+            # sql1="SELECT username from user"
+            # sql2="SELECT password from user"
+            # res1=c.execute(sql1)
+            # res2=c.execute(sql2)
+            if (username=="admin" and password=="admin" ):
                 self.Login_button.configure(command=top.ToplevelWindow.menuadmin())
             else :
                 self.Login_button.configure(command=top.ToplevelWindow.menuUser)

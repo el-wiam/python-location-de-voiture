@@ -36,7 +36,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
             fg_color="black",
             text="",
         )
-        self.bg_imageLogo.place(x=0, y=550)
+        self.bg_imageLogo.place(x=0, y=450)
     def seereservation(self):
         
         my_conn=conn.db

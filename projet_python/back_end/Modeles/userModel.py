@@ -1,4 +1,4 @@
-import connexion
+from Classes import connexion
 class UserModel:
     def authentifierUser(username,password):
         try:

@@ -1,27 +1,29 @@
-import users
 import traceback
-import clientModel
-class Client(users.utilisateur):
+from .users import * 
+from ..Modeles.clientModel import * 
+
+
+class Client(utilisateur):
     def __init__(self,nomComplet='',cin='',numTel='',username='',password='',email='',numPermis=''):
-        users.utilisateur.__init__(self,nomComplet,cin,numTel,username,password,email,numPermis)
+        utilisateur.__init__(self,nomComplet,cin,numTel,username,password,email,numPermis)
     
     def reserver_voiture(self,voiture_id, date_debut, date_fin):
         try:
-            return clientModel.ClientModel.reserver_voiture(voiture_id, date_debut, date_fin,self.id)
+            return ClientModel.reserver_voiture(voiture_id, date_debut, date_fin,self.id)
         except Exception as e:
                 print("Error Type:", type(e).__name__)
                 traceback.print_exc()
 
     def annuler_reservation(self,id):
         try:
-            return clientModel.ClientModel.annulerReservation(id)
+            return ClientModel.annulerReservation(id)
         except Exception as e:
             print("Error Type:", type(e).__name__)
             traceback.print_exc()
 
     def modifier_reservation(self,id):
         try:
-            return clientModel.ClientModel.modifierReservation(id)
+            return ClientModel.modifierReservation(id)
         except Exception as e:
             print("Error Type:", type(e).__name__)
             traceback.print_exc()

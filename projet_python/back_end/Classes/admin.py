@@ -1,9 +1,11 @@
 # import adminModel
 import traceback
-import voiture
-import adminModel
 import users
-import client
+from ..Modeles import adminModel 
+# import voiture
+# import adminModel
+# import users
+# import client
 
 class Admin(users.utilisateur):
     

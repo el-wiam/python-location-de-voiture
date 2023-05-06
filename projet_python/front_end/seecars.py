@@ -40,7 +40,11 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 e.insert(END,car[j])
                 W=customtkinter.CTkLabel(self,width=10,text='id',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=0)
+<<<<<<< HEAD
                 W=customtkinter.CTkLabel(self,width=10,text='marque',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+=======
+                W=Label(self,width=10,text='marque',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+>>>>>>> bfa34a174c0cc5511660a2528074a28361a76ad0
                 W.grid(row=0,column=1)
                 W=customtkinter.CTkLabel(self,width=10,text='type de carburant',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=2)
@@ -52,7 +56,13 @@ class ToplevelWindow(customtkinter.CTkToplevel):
                 W.grid(row=0,column=5)
                 W=customtkinter.CTkLabel(self,width=10,text='disponibilité',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=6)
+<<<<<<< HEAD
                 W=customtkinter.CTkLabel(self,width=10,text='image',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
                 W.grid(row=0,column=7)
+=======
+                W=Label(self,width=10,text='image',borderwidth=2, relief='ridge',anchor='w',bg='yellow')
+                W.grid(row=0,column=7) 
+>>>>>>> bfa34a174c0cc5511660a2528074a28361a76ad0
             i=i+1
+
             
